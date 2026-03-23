@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1B1E" media="(prefers-color-scheme: dark)">
+<title>База рецептов Саши</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --card: #FFFFFF;
+  --text: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --border: #E8E8E8;
+  --accent: #D4764E;
+  --accent-soft: #FFF0E6;
+  --accent-dark: #B85F3A;
+  --hover: rgba(0,0,0,0.03);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+  --book-bg: #FFF8F0;
+  --book-border: #E8C9A0;
+}
+
+body.dark {
+  --bg: #1A1B1E;
+  --card: #2A2B2E;
+  --text: #E8E8E8;
+  --text-secondary: #9A9A9A;
+  --border: #3A3B3E;
+  --accent-soft: #3A2A20;
+  --hover: rgba(255,255,255,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+  --book-bg: #2E2820;
+  --book-border: #5A4A30;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --bg: #1A1B1E;
+    --card: #2A2B2E;
+    --text: #E8E8E8;
+    --text-secondary: #9A9A9A;
+    --border: #3A3B3E;
+    --accent-soft: #3A2A20;
+    --hover: rgba(255,255,255,0.04);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+    --book-bg: #2E2820;
+    --book-border: #5A4A30;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* --- HEADER --- */
+.header {
+  background: linear-gradient(135deg, #D4764E 0%, #E8A87C 50%, #C4603A 100%);
+  padding: 32px 20px 16px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; text-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+.header p { font-size: 0.85rem; opacity: 0.95; font-weight: 400; max-width: 500px; margin: 0 auto; }
+.dark-toggle {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.2); border: none;
+  border-radius: 50%; width: 36px; height: 36px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition);
+  backdrop-filter: blur(4px);
+}
+.dark-toggle:hover { background: rgba(255,255,255,0.35); }
+
+/* --- NAV --- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border-color var(--transition);
+}
+.nav-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; flex-wrap: nowrap;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: 44px; align-items: center;
+  padding: 0 8px; gap: 2px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-inner a:hover { color: var(--text); background: var(--hover); }
+.nav-inner a.active { color: var(--accent); font-weight: 600; }
+
+/* --- MAIN --- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* --- TIP BOX --- */
+.tip-box {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+.tip-box .tip-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--accent);
+}
+.tip-box .tip-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.tip-box .tip-formula {
+  display: inline-block;
+  margin-top: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+/* --- DAILY TARGETS --- */
+.daily-targets {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.target-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem; font-weight: 600;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.target-pill .val { color: var(--accent); font-weight: 700; }
+
+/* --- FILTER BAR --- */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 20px;
+  padding: 4px 0;
+}
+.filter-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--text-secondary);
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+.filter-btn:hover { background: var(--hover); border-color: var(--accent); color: var(--text); }
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* --- COUNT BADGE --- */
+.count-badge {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.count-badge span { font-weight: 700; color: var(--accent); }
+
+/* --- CATEGORY SECTIONS --- */
+.category-section { margin-bottom: 28px; scroll-margin-top: 60px; }
+
+.category-header {
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 14px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.category-header .cat-icon { font-size: 1.3rem; }
+.category-header .cat-count {
+  font-size: 0.65rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 6px;
+  background: var(--accent); color: #fff;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  margin-left: auto;
+}
+
+/* --- RECIPE GRID --- */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .recipe-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- RECIPE CARDS --- */
+details.recipe {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: background var(--transition), box-shadow var(--transition);
+  border-left: 3px solid var(--accent);
+}
+details.recipe[open] { box-shadow: var(--shadow-lg); }
+details.recipe summary {
+  padding: 14px 16px;
+  font-weight: 600; font-size: 0.88rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: background var(--transition);
+  user-select: none;
+}
+details.recipe summary::-webkit-details-marker { display: none; }
+details.recipe summary .summary-top {
+  display: flex; align-items: center; gap: 8px;
+}
+details.recipe summary .summary-top::before {
+  content: '\25B8'; font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+details.recipe[open] summary .summary-top::before { transform: rotate(90deg); }
+details.recipe summary:hover { background: var(--hover); }
+details.recipe summary .recipe-name { flex: 1; }
+
+/* Book label */
+.book-label {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.65rem; font-weight: 500;
+  color: var(--accent-dark);
+  background: var(--book-bg);
+  border: 1px solid var(--book-border);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* --- KBZHU BADGE --- */
+.kbzhu-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #D4764E 0%, #E8A87C 100%);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.kbzhu-badge .kcal-val { font-weight: 700; }
+
+/* --- RECIPE BODY --- */
+.recipe-body {
+  padding: 0 16px 16px;
+  font-size: 0.82rem;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.recipe-meta {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-secondary);
+}
+.recipe-meta span { display: flex; align-items: center; gap: 4px; }
+.recipe-body h4 {
+  font-size: 0.78rem; font-weight: 600;
+  margin: 12px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+.recipe-body ul, .recipe-body ol { padding-left: 20px; margin-bottom: 8px; }
+.recipe-body li { margin-bottom: 3px; font-size: 0.82rem; }
+.recipe-tip {
+  background: var(--hover);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center; padding: 24px 16px 40px;
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+
+/* --- HIDDEN --- */
+.recipe-card.hidden {
+  display: none !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.25rem; }
+  .container { padding: 12px; }
+  .recipe-grid { grid-template-columns: 1fr; }
+  .filter-btn { font-size: 0.72rem; padding: 6px 12px; }
+  .nav-inner a { font-size: 0.72rem; padding: 8px 8px; }
+  .kbzhu-badge { font-size: 0.62rem; padding: 3px 8px; }
+  .daily-targets { gap: 6px; }
+  .target-pill { font-size: 0.68rem; padding: 5px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="dark-toggle" id="darkToggle" aria-label="Переключить тему">🌙</button>
+  <h1>🍗 База рецептов Саши</h1>
+  <p>Простые рецепты для похудения · до 30 мин · из книги «Сделать мир легче» и не только</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">🏠 Главная</a>
+    <a href="recipes-sasha.html" class="active">🍗 Рецепты Саши</a>
+    <a href="desserts.html">🍰 Десерты</a>
+    <a href="snacks.html">🍿 Снеки</a>
+    <a href="#cat-thighs">Бёдрышки</a>
+    <a href="#cat-mince">Фарш</a>
+    <a href="#cat-fish">Рыба</a>
+    <a href="#cat-stew">Рагу</a>
+    <a href="#cat-breakfast">Завтраки</a>
+    <a href="#cat-sides">Гарниры</a>
+    <a href="#cat-snacks">Перекусы</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- TIP BOX -->
+  <div class="tip-box">
+    <div class="tip-title">💡 Собери обед за 2 минуты</div>
+    <div class="tip-text">
+      Не придумывай сложные блюда. Один принцип на все приёмы пищи:
+    </div>
+    <div class="tip-formula">🥩 Белок + 🥦 Овощи + 🍚 Гарнир = Готово</div>
+    <div class="tip-text" style="margin-top: 8px;">
+      Готовь сразу 2-3 порции — обед и ужин за одну готовку. Заморозка овощей — ок!
+    </div>
+  </div>
+
+  <!-- DAILY TARGETS -->
+  <div class="daily-targets">
+    <div class="target-pill">🎯 <span class="val">2100</span> ккал/день</div>
+    <div class="target-pill">🥩 Б <span class="val">150</span>г</div>
+    <div class="target-pill">🧈 Ж <span class="val">60</span>г</div>
+    <div class="target-pill">🍚 У <span class="val">240</span>г</div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="thighs">🍗 Бёдрышки</button>
+    <button class="filter-btn" data-filter="mince">🥩 Фарш</button>
+    <button class="filter-btn" data-filter="fish">🐟 Рыба</button>
+    <button class="filter-btn" data-filter="stew">🍲 Рагу</button>
+    <button class="filter-btn" data-filter="breakfast">🍳 Завтраки</button>
+    <button class="filter-btn" data-filter="sides">🍚 Гарниры</button>
+    <button class="filter-btn" data-filter="snacks">🥛 Перекусы</button>
+  </div>
+
+  <!-- COUNT -->
+  <div class="count-badge" id="countBadge">Показано: <span id="visibleCount">30</span> из 30 рецептов</div>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 1: БЁДРЫШКИ В ДУХОВКЕ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-thighs">
+    <div class="category-header">
+      <span class="cat-icon">🍗</span> Бёдрышки в духовке
+      <span class="cat-count">6 рецептов</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 1. Бёдрышки с помидорами и сыром лайт -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки с помидорами и сыром лайт 15%</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">520 ккал</span> · Б 48г · Ж 18г · У 35г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + 30 мин духовка</span>
+              <span>🍽 1 порция (450г)</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 250 г</li>
+              <li>Помидоры — 2 шт (150 г)</li>
+              <li>Сыр лайт 15% — 40 г</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Соль, перец, сушёный базилик — по вкусу</li>
+              <li>Немного оливкового масла — 1 ч.л.</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Бёдра посолить, поперчить, выложить в форму.</li>
+              <li>Сверху — нарезанные помидоры и чеснок.</li>
+              <li>Запекать 20 мин при 200°C, затем посыпать тёртым сыром.</li>
+              <li>Ещё 10 мин до расплавления сыра. Готово.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Разогревать в микроволновке 2-3 мин.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 2. Бёдрышки в паприке и чесноке с картошкой -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки в паприке и чесноке с картошкой</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">550 ккал</span> · Б 45г · Ж 15г · У 55г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 35 мин духовка</span>
+              <span>🍽 1 порция</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 250 г</li>
+              <li>Картофель — 250 г (2-3 средних)</li>
+              <li>Паприка копчёная — 1 ч.л.</li>
+              <li>Чеснок — 3 зубчика</li>
+              <li>Оливковое масло — 1 ч.л.</li>
+              <li>Соль, перец — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Картошку нарезать дольками, бёдра — крупными кусками.</li>
+              <li>Всё смешать с паприкой, чесноком и маслом в форме.</li>
+              <li>Запекать 35 мин при 200°C до золотистости.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Картошка чуть теряет хруст, но вкус остаётся.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 3. Бёдрышки в соевом соусе и мёде с бататом -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки в соевом соусе и мёде с бататом</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">530 ккал</span> · Б 44г · Ж 16г · У 48г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 30 мин духовка</span>
+              <span>🍽 1 порция</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 250 г</li>
+              <li>Батат (сладкий картофель) — 200 г</li>
+              <li>Соевый соус — 2 ст.л.</li>
+              <li>Мёд — 1 ч.л.</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Имбирь молотый — 1/2 ч.л.</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Батат нарезать кубиками, выложить в форму.</li>
+              <li>Бёдра замариновать в соевом соусе + мёд + чеснок + имбирь (5 мин).</li>
+              <li>Выложить бёдра поверх батата, полить маринадом.</li>
+              <li>Запекать 30 мин при 200°C.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Батат становится ещё мягче — только лучше.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 4. Бёдрышки с овощной заморозкой "по-деревенски" -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки с овощной заморозкой «по-деревенски»</span>
+              <span class="book-label">📖 Из книги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">480 ккал</span> · Б 42г · Ж 14г · У 40г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + 30 мин духовка</span>
+              <span>🍽 1 порция</span>
+              <span>🌡 190°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 250 г</li>
+              <li>Замороженные овощи «по-деревенски» — 250 г</li>
+              <li>Оливковое масло — 1 ч.л.</li>
+              <li>Соль, перец, приправа для курицы — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Высыпать замороженные овощи в форму для запекания.</li>
+              <li>Сверху положить приправленные бёдра.</li>
+              <li>Сбрызнуть маслом, запекать 30 мин при 190°C.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Самый быстрый рецепт — буквально закинул и забыл.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5. Бёдрышки с кабачком и сыром -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки с кабачком и сыром</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">500 ккал</span> · Б 46г · Ж 17г · У 30г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 25 мин духовка</span>
+              <span>🍽 1 порция</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 250 г</li>
+              <li>Кабачок — 200 г (1 средний)</li>
+              <li>Сыр лайт 15% — 30 г</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Прованские травы — 1 ч.л.</li>
+              <li>Соль, перец — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Кабачок нарезать кружочками, выложить в форму.</li>
+              <li>Бёдра приправить травами, положить поверх.</li>
+              <li>Запекать 15 мин при 200°C, достать, посыпать сыром.</li>
+              <li>Ещё 10 мин до готовности. Подавать с зеленью.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 2 дня. Кабачок даёт много сока — лёгкое блюдо.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 6. Бёдрышки в горчице с гречкой -->
+      <div class="recipe-card" data-category="thighs">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Бёдрышки в горчице с гречкой</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">540 ккал</span> · Б 46г · Ж 16г · У 52г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 30 мин духовка</span>
+              <span>🍽 2 порции</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 500 г</li>
+              <li>Гречка — 160 г (сухая)</li>
+              <li>Горчица дижонская — 2 ст.л.</li>
+              <li>Мёд — 1 ч.л.</li>
+              <li>Соевый соус — 1 ст.л.</li>
+              <li>Чеснок — 3 зубчика</li>
+              <li>Вода — 350 мл</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Бёдра обмазать смесью горчица + мёд + соевый + чеснок.</li>
+              <li>Гречку высыпать в форму, залить водой, посолить.</li>
+              <li>Сверху выложить бёдра в маринаде.</li>
+              <li>Накрыть фольгой, запекать 30 мин при 200°C.</li>
+              <li>Снять фольгу на последние 5 мин для корочки.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. 2 порции — обед и ужин за раз!</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 2: КУРИНЫЙ ФАРШ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-mince">
+    <div class="category-header">
+      <span class="cat-icon">🥩</span> Куриный фарш
+      <span class="cat-count">5 рецептов</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 7. Тефтели в томатном соусе с макаронами -->
+      <div class="recipe-card" data-category="mince">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Тефтели в томатном соусе с макаронами</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">550 ккал</span> · Б 45г · Ж 14г · У 58г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин + 20 мин тушить</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриный фарш — 400 г</li>
+              <li>Макароны (пенне/спирали) — 160 г (сухие)</li>
+              <li>Томатная паста — 2 ст.л.</li>
+              <li>Помидоры консервированные (резаные) — 200 г</li>
+              <li>Лук — 1 шт (мелко нарезать)</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Соль, перец, сушёный орегано — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Фарш смешать с луком, солью, перцем. Скатать тефтели (размером с грецкий орех).</li>
+              <li>Обжарить тефтели на сухой антипригарной сковороде 3-4 мин.</li>
+              <li>Добавить томатную пасту, помидоры, чеснок. Тушить 15-20 мин под крышкой.</li>
+              <li>Параллельно сварить макароны. Подавать вместе.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Тефтели отдельно, макароны отдельно — так лучше хранятся.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 8. Котлеты из фарша с картошкой-пюре -->
+      <div class="recipe-card" data-category="mince">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Котлеты из фарша с картошкой-пюре</span>
+              <span class="book-label">📖 Из книги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">530 ккал</span> · Б 42г · Ж 16г · У 52г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин + 20 мин жарка/духовка</span>
+              <span>🍽 2 порции (6 котлет)</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриный фарш — 400 г</li>
+              <li>Картофель — 400 г</li>
+              <li>Лук — 1 шт</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Молоко 1.5% — 50 мл (для пюре)</li>
+              <li>Соль, перец, чесночный порошок — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Картошку почистить, сварить, размять с молоком в пюре.</li>
+              <li>Фарш смешать с луком, яйцом, приправами. Сформировать котлеты.</li>
+              <li>Обжарить на антипригарной сковороде по 4-5 мин с каждой стороны (или запечь при 200°C 20 мин).</li>
+              <li>Подавать с пюре. Классика!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Котлеты можно заморозить сырыми — потом сразу в духовку.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 9. Фарш с фасолью и рисом (буррито-боул) -->
+      <div class="recipe-card" data-category="mince">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Буррито-боул: фарш + фасоль + рис</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">560 ккал</span> · Б 48г · Ж 15г · У 55г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 15 мин готовка</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриный фарш — 300 г</li>
+              <li>Рис — 160 г (сухой)</li>
+              <li>Фасоль консервированная — 150 г (слить воду)</li>
+              <li>Кукуруза консервированная — 80 г</li>
+              <li>Томатная паста — 1 ст.л.</li>
+              <li>Кумин (зира), паприка, чили — по 1/2 ч.л.</li>
+              <li>Соль — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Сварить рис отдельно.</li>
+              <li>Фарш обжарить на сухой сковороде с приправами 5-7 мин.</li>
+              <li>Добавить фасоль, кукурузу, томатную пасту. Тушить 5 мин.</li>
+              <li>Собрать боул: рис + фарш + зелень по желанию.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Можно собирать в контейнеры для meal prep.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 10. Запеканка из фарша с картошкой -->
+      <div class="recipe-card" data-category="mince">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Запеканка: фарш с картошкой</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">540 ккал</span> · Б 44г · Ж 16г · У 54г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин + 30 мин духовка</span>
+              <span>🍽 3 порции</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриный фарш — 500 г</li>
+              <li>Картофель — 500 г</li>
+              <li>Лук — 1 шт</li>
+              <li>Сыр лайт — 50 г</li>
+              <li>Молоко 1.5% — 100 мл</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Соль, перец, мускатный орех — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Картошку нарезать тонкими кружочками.</li>
+              <li>Фарш обжарить с луком 5 мин на сковороде.</li>
+              <li>В форму слоями: картошка → фарш → картошка. Залить молоко + яйцо.</li>
+              <li>Посыпать сыром, запекать 30 мин при 200°C.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. 3 порции — на пару дней вперёд!</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 11. Ленивые голубцы -->
+      <div class="recipe-card" data-category="mince">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Ленивые голубцы (фарш + капуста + рис)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">480 ккал</span> · Б 40г · Ж 12г · У 48г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин + 25 мин тушить</span>
+              <span>🍽 3 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриный фарш — 400 г</li>
+              <li>Рис — 100 г (сухой)</li>
+              <li>Капуста белокочанная — 300 г (нашинковать)</li>
+              <li>Томатная паста — 2 ст.л.</li>
+              <li>Лук — 1 шт</li>
+              <li>Морковь — 1 шт (натереть)</li>
+              <li>Вода — 300 мл</li>
+              <li>Соль, перец — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Рис сварить до полуготовности (7 мин).</li>
+              <li>Фарш смешать с рисом, сформировать крупные котлеты.</li>
+              <li>В кастрюлю: капуста + лук + морковь + томатная паста + вода.</li>
+              <li>Выложить котлеты поверх, накрыть крышкой, тушить 25 мин на среднем огне.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 4 дня. Одно из лучших блюд для мил-препа!</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 3: РЫБА -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-fish">
+    <div class="category-header">
+      <span class="cat-icon">🐟</span> Рыба
+      <span class="cat-count">3 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 12. Лосось запечённый с овощами -->
+      <div class="recipe-card" data-category="fish">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Лосось запечённый с овощами</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">450 ккал</span> · Б 38г · Ж 22г · У 25г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + 20 мин духовка</span>
+              <span>🍽 1 порция</span>
+              <span>🌡 180°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Филе лосося — 180 г</li>
+              <li>Брокколи — 150 г (можно замороженную)</li>
+              <li>Помидоры черри — 100 г</li>
+              <li>Лимон — 2 дольки</li>
+              <li>Оливковое масло — 1 ч.л.</li>
+              <li>Соль, перец, укроп — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Овощи и рыбу выложить в форму или на фольгу.</li>
+              <li>Посолить, поперчить, сбрызнуть лимоном и маслом.</li>
+              <li>Запекать 20 мин при 180°C. Не пересушивать!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 2 дня. Лосось = омега-3, отлично для холестерина.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 13. Треска/минтай в томатной заправке -->
+      <div class="recipe-card" data-category="fish">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Треска (минтай) в томатной заправке</span>
+              <span class="book-label">📖 Из книги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">350 ккал</span> · Б 35г · Ж 8г · У 22г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 20 мин тушить</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Филе трески (или минтая) — 400 г</li>
+              <li>Помидоры консервированные — 200 г</li>
+              <li>Лук — 1 шт</li>
+              <li>Морковь — 1 шт</li>
+              <li>Томатная паста — 1 ст.л.</li>
+              <li>Соль, перец, лавровый лист — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Лук и морковь обжарить на сковороде 3-4 мин.</li>
+              <li>Добавить помидоры и томатную пасту, прогреть.</li>
+              <li>Выложить рыбу в соус, накрыть крышкой.</li>
+              <li>Тушить 15-20 мин на среднем огне. Рыба должна легко разделяться.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 2 дня. Бюджетная рыба + много белка.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 14. Рыба с рисом и брокколи -->
+      <div class="recipe-card" data-category="fish">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Рыба с рисом и брокколи</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">480 ккал</span> · Б 38г · Ж 12г · У 50г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 25 мин духовка</span>
+              <span>🍽 2 порции</span>
+              <span>🌡 190°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Филе белой рыбы (треска/пангасиус) — 350 г</li>
+              <li>Рис — 160 г (сухой)</li>
+              <li>Брокколи замороженная — 200 г</li>
+              <li>Соевый соус — 1 ст.л.</li>
+              <li>Лимонный сок — 1 ст.л.</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Соль, перец — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Рис сварить отдельно.</li>
+              <li>Рыбу и брокколи выложить в форму, полить соевым + лимон + чеснок.</li>
+              <li>Запекать 20-25 мин при 190°C.</li>
+              <li>Подавать рыбу с овощами на рисе.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 2 дня. Рис хранить отдельно от рыбы.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 4: РАГУ И ТУШЁНОЕ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-stew">
+    <div class="category-header">
+      <span class="cat-icon">🍲</span> Рагу и тушёное
+      <span class="cat-count">2 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 15. Рагу из курицы и овощей -->
+      <div class="recipe-card" data-category="stew">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Рагу из курицы и овощей</span>
+              <span class="book-label">📖 Из книги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">450 ккал</span> · Б 42г · Ж 12г · У 35г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 25 мин тушить</span>
+              <span>🍽 3 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Куриные бёдра без кожи — 500 г (нарезать кубиками)</li>
+              <li>Кабачок — 200 г</li>
+              <li>Болгарский перец — 1 шт</li>
+              <li>Морковь — 1 шт</li>
+              <li>Лук — 1 шт</li>
+              <li>Помидоры — 2 шт (или 200 г консервированных)</li>
+              <li>Чеснок — 3 зубчика</li>
+              <li>Томатная паста — 1 ст.л.</li>
+              <li>Вода — 150 мл</li>
+              <li>Соль, перец, паприка — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Курицу обжарить на сухой сковороде 5 мин.</li>
+              <li>Добавить лук и морковь, жарить ещё 3 мин.</li>
+              <li>Добавить остальные овощи, томатную пасту, воду, приправы.</li>
+              <li>Накрыть крышкой, тушить 20-25 мин на среднем огне.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 4 дня. ТОП-1 рецепт из книги! Много объёма, мало калорий.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 16. Рагу с фасолью и овощами (без мяса) -->
+      <div class="recipe-card" data-category="stew">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Рагу с фасолью (без мяса — для дней с Ксюшей)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">380 ккал</span> · Б 22г · Ж 8г · У 48г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + 20 мин тушить</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Фасоль консервированная (красная) — 250 г</li>
+              <li>Кабачок — 200 г</li>
+              <li>Болгарский перец — 1 шт</li>
+              <li>Помидоры консервированные — 200 г</li>
+              <li>Лук — 1 шт</li>
+              <li>Чеснок — 2 зубчика</li>
+              <li>Оливковое масло — 1 ч.л.</li>
+              <li>Кумин, паприка, соль — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Лук обжарить в масле 2-3 мин.</li>
+              <li>Добавить все овощи и фасоль.</li>
+              <li>Залить помидорами, добавить приправы.</li>
+              <li>Тушить 20 мин. Подавать с рисом или хлебом.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 4 дня. Подходит для совместного ужина с Ксюшей.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 5: ЗАВТРАКИ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-breakfast">
+    <div class="category-header">
+      <span class="cat-icon">🍳</span> Завтраки
+      <span class="cat-count">4 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 17. Овсянка с греческим йогуртом и ягодами -->
+      <div class="recipe-card" data-category="breakfast">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Овсянка с греческим йогуртом и ягодами</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">420 ккал</span> · Б 28г · Ж 10г · У 55г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Овсяные хлопья — 80 г</li>
+              <li>Вода или молоко 1.5% — 200 мл</li>
+              <li>Греческий йогурт 2% — 100 г</li>
+              <li>Ягоды (замороженные ок) — 80 г</li>
+              <li>Мёд — 1 ч.л. (по желанию)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Овсянку залить водой/молоком, варить 5-7 мин.</li>
+              <li>Выложить в тарелку, сверху — йогурт и ягоды.</li>
+              <li>По желанию добавить мёд. Готово!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥣 Овсянку можно замочить с вечера (overnight oats) — утром не варить.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 18. Омлет (1 яйцо + 3 белка) с овощами + хлеб -->
+      <div class="recipe-card" data-category="breakfast">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Омлет с овощами + цельнозерновой хлеб</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">400 ккал</span> · Б 35г · Ж 12г · У 35г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Яйцо целое — 1 шт</li>
+              <li>Белки яиц — 3 шт</li>
+              <li>Помидор — 1 шт</li>
+              <li>Шпинат (или любая зелень) — горсть</li>
+              <li>Хлеб цельнозерновой — 2 ломтика</li>
+              <li>Соль, перец — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Яйцо + белки взбить вилкой, посолить.</li>
+              <li>Помидор и шпинат нарезать, выложить на горячую сковороду.</li>
+              <li>Залить яичной смесью, накрыть крышкой на 3-4 мин.</li>
+              <li>Подавать с хлебом. Максимум белка при минимуме жира!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🍳 Готовить на раз. Яйца ≤1 целое в день (холестерин).</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 19. Творог 2% с ягодами и семечками -->
+      <div class="recipe-card" data-category="breakfast">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творог 2% с ягодами и семечками</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">350 ккал</span> · Б 35г · Ж 8г · У 30г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 3 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 2% — 250 г</li>
+              <li>Ягоды (черника/малина, замороженные ок) — 80 г</li>
+              <li>Семечки подсолнечника — 10 г</li>
+              <li>Мёд или подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Творог выложить в тарелку.</li>
+              <li>Сверху ягоды и семечки.</li>
+              <li>Добавить мёд. Всё, серьёзно.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥛 Готовить на раз. Творог — база белкового завтрака.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 20. Овсяноблин с творогом -->
+      <div class="recipe-card" data-category="breakfast">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Овсяноблин с творогом</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">400 ккал</span> · Б 28г · Ж 10г · У 45г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Овсяные хлопья — 50 г</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Молоко 1.5% — 50 мл</li>
+              <li>Творог 2% — 100 г (начинка)</li>
+              <li>Банан — 1/2 шт (начинка)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Овсянку + яйцо + молоко смешать, дать постоять 3 мин.</li>
+              <li>Вылить тонким слоем на горячую антипригарную сковороду.</li>
+              <li>Жарить 2-3 мин с каждой стороны.</li>
+              <li>Выложить творог и банан, свернуть пополам.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🍳 Тесто можно замешать с вечера — утром только жарить.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 6: ГАРНИРЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-sides">
+    <div class="category-header">
+      <span class="cat-icon">🍚</span> Гарниры (комбинируй с любым белком)
+      <span class="cat-count">5 гарниров</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 21. Гречка -->
+      <div class="recipe-card" data-category="sides">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Гречка</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">280 ккал</span> · Б 10г · Ж 3г · У 52г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 20 мин</span>
+              <span>🍽 1 порция (80 г сухой)</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Гречка — 80 г</li>
+              <li>Вода — 200 мл</li>
+              <li>Соль — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Гречку промыть, залить водой, посолить.</li>
+              <li>Довести до кипения, варить на минимальном огне 15-18 мин.</li>
+              <li>Выключить, дать постоять 5 мин под крышкой.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 4 дня. Можно варить сразу 3-4 порции.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 22. Макароны -->
+      <div class="recipe-card" data-category="sides">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Макароны (из твёрдых сортов)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">280 ккал</span> · Б 10г · Ж 2г · У 55г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 12 мин</span>
+              <span>🍽 1 порция (80 г сухих)</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Макароны из твёрдых сортов пшеницы — 80 г</li>
+              <li>Вода — 1 л</li>
+              <li>Соль — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Воду вскипятить, посолить.</li>
+              <li>Макароны варить по инструкции на упаковке (обычно 8-10 мин).</li>
+              <li>Слить воду. Подавать с белком и соусом.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Твёрдые сорта = низкий ГИ, дольше сытость.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 23. Рис -->
+      <div class="recipe-card" data-category="sides">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Рис (белый / бурый)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">280 ккал</span> · Б 6г · Ж 1г · У 62г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 20 мин</span>
+              <span>🍽 1 порция (80 г сухого)</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Рис — 80 г</li>
+              <li>Вода — 160 мл (для белого) / 200 мл (для бурого)</li>
+              <li>Соль — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Рис промыть 2-3 раза до прозрачной воды.</li>
+              <li>Залить водой, посолить, довести до кипения.</li>
+              <li>Варить на минимальном огне под крышкой 15-18 мин. Не мешать!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Бурый рис полезнее, но варится дольше (~30 мин).</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 24. Картошка запечённая -->
+      <div class="recipe-card" data-category="sides">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Картошка запечённая дольками</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">230 ккал</span> · Б 6г · Ж 0г · У 52г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + 30 мин духовка</span>
+              <span>🍽 1 порция (300 г)</span>
+              <span>🌡 200°C</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Картофель — 300 г (2-3 средних)</li>
+              <li>Паприка / чесночный порошок — по 1/2 ч.л.</li>
+              <li>Соль — по вкусу</li>
+              <li>Оливковое масло — 1 ч.л. (по желанию)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Картошку нарезать дольками, не чистить (в кожуре больше клетчатки).</li>
+              <li>Смешать с приправами (и маслом, если хотите хруст).</li>
+              <li>Разложить на противне в один слой.</li>
+              <li>Запекать 25-30 мин при 200°C, перевернуть один раз.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 3 дня. Без масла = 0 жира. С маслом — чуть вкуснее.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 25. Булгур -->
+      <div class="recipe-card" data-category="sides">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Булгур</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">270 ккал</span> · Б 9г · Ж 1г · У 54г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин</span>
+              <span>🍽 1 порция (80 г сухого)</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Булгур — 80 г</li>
+              <li>Вода — 160 мл</li>
+              <li>Соль — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Булгур залить кипятком, посолить.</li>
+              <li>Варить на слабом огне 12-15 мин под крышкой.</li>
+              <li>Дать постоять 5 мин. Готово — рассыпчатый и ароматный!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">❄️ Холодильник — 4 дня. Вкусная альтернатива рису. Больше белка и клетчатки.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 7: ПЕРЕКУСЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-snacks">
+    <div class="category-header">
+      <span class="cat-icon">🥛</span> Перекусы и быстрые
+      <span class="cat-count">5 рецептов</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 26. Творог 2% + ягоды -->
+      <div class="recipe-card" data-category="snacks">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творог 2% + ягоды (200 г)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">200 ккал</span> · Б 25г · Ж 4г · У 16г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 1 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 2% — 200 г</li>
+              <li>Ягоды (любые, замороженные ок) — 50 г</li>
+              <li>Подсластитель — по желанию</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Открыть пачку творога.</li>
+              <li>Насыпать ягоды. Съесть.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥛 Аварийный перекус #1. Всегда держать творог в холодильнике.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 27. Кефир 1% + банан -->
+      <div class="recipe-card" data-category="snacks">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Кефир 1% + банан</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">190 ккал</span> · Б 10г · Ж 3г · У 32г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 2 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Кефир 1% — 250 мл</li>
+              <li>Банан — 1 шт</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Банан нарезать кусочками в стакан.</li>
+              <li>Залить кефиром. Можно пробить блендером в смузи.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥛 Готовить на раз. Отличный вечерний перекус — казеин для сна.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 28. Тунец консервы + огурец + хлебец -->
+      <div class="recipe-card" data-category="snacks">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Тунец + огурец + хлебцы</span>
+              <span class="book-label">📖 Из книги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">180 ккал</span> · Б 22г · Ж 3г · У 15г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 3 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Тунец консервированный (в собственном соку) — 1 банка (80 г)</li>
+              <li>Огурец — 1 шт</li>
+              <li>Хлебцы цельнозерновые — 2 шт</li>
+              <li>Лимонный сок — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Тунец размять вилкой, сбрызнуть лимоном.</li>
+              <li>Огурец нарезать. Есть с хлебцами.</li>
+              <li>Можно сделать «бутерброд»: тунец на хлебце + огурец сверху.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥫 Банка тунца + хлебцы — идеальный аварийный набор. Держать на работе!</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 29. Протеиновый пудинг (творог + какао + банан) -->
+      <div class="recipe-card" data-category="snacks">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Протеиновый пудинг (творог + какао + банан)</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">220 ккал</span> · Б 22г · Ж 3г · У 28г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 2% — 150 г</li>
+              <li>Какао-порошок — 1 ст.л.</li>
+              <li>Банан — 1/2 шт (спелый)</li>
+              <li>Молоко 1.5% — 50 мл</li>
+              <li>Подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Все ингредиенты пробить погружным блендером до гладкости.</li>
+              <li>Разлить по стаканам. Можно охладить 30 мин.</li>
+              <li>Шоколадный вкус, а калорий мало!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥛 Холодильник — 1 день. Замена шоколадному муссу / мороженому.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 30. Яйцо вкрутую + хумус + овощные палочки -->
+      <div class="recipe-card" data-category="snacks">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Яйцо вкрутую + хумус + овощные палочки</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">180 ккал</span> · Б 12г · Ж 10г · У 12г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 2 мин (если яйцо готово)</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Яйцо варёное — 1 шт</li>
+              <li>Хумус — 30 г (2 ст.л.)</li>
+              <li>Морковь / огурец / сельдерей — 100 г (нарезать палочками)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Яйцо почистить, нарезать пополам.</li>
+              <li>Овощи нарезать палочками.</li>
+              <li>Макать овощи в хумус, закусывать яйцом. Сытно и быстро.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">🥚 Яйца можно варить впрок на 5 дней. Хумус хранится 5-7 дней.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  🍗 База рецептов Саши · 2100 ккал · Б 150г · Ж 60г · У 240г · Обновлено: март 2026
+</footer>
+
+<script>
+(function() {
+  // === DARK MODE ===
+  var DARK_KEY = 'sasha_recipes_dark';
+  var toggle = document.getElementById('darkToggle');
+  var saved = localStorage.getItem(DARK_KEY);
+
+  if (saved === 'dark') { document.body.classList.add('dark'); toggle.textContent = '\u2600\uFE0F'; }
+  else if (saved === 'light') { document.body.classList.add('light'); toggle.textContent = '\uD83C\uDF19'; }
+
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+      localStorage.setItem(DARK_KEY, 'light');
+      toggle.textContent = '\uD83C\uDF19';
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+      localStorage.setItem(DARK_KEY, 'dark');
+      toggle.textContent = '\u2600\uFE0F';
+    }
+  });
+
+  // === FILTER SYSTEM ===
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.recipe-card');
+  var countEl = document.getElementById('visibleCount');
+  var totalCount = cards.length;
+
+  function applyFilter(filter) {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var cat = card.getAttribute('data-category');
+      var show = filter === 'all' || cat === filter;
+
+      if (show) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    countEl.textContent = visible;
+
+    // Show/hide category sections with no visible cards
+    document.querySelectorAll('.category-section').forEach(function(section) {
+      var visibleCards = section.querySelectorAll('.recipe-card:not(.hidden)');
+      section.style.display = visibleCards.length > 0 ? '' : 'none';
+    });
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>
+</body>
+</html>
