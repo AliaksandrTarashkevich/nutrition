@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1B1E" media="(prefers-color-scheme: dark)">
+<title>Наше меню — Саша & Ксюша</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7; --card: #FFFFFF; --text: #2D2D2D;
+  --text-secondary: #6B6B6B; --border: #E8E8E8;
+  --sasha: #D4764E; --ksyusha: #81D8D0; --shared: #A8C5A0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px; --transition: 0.2s ease;
+}
+body.dark {
+  --bg: #1A1B1E; --card: #2A2B2E; --text: #E8E8E8;
+  --text-secondary: #9A9A9A; --border: #3A3B3E;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+}
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --bg: #1A1B1E; --card: #2A2B2E; --text: #E8E8E8;
+    --text-secondary: #9A9A9A; --border: #3A3B3E;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.5; -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+  min-height: 100vh;
+}
+.header {
+  background: linear-gradient(135deg, var(--sasha) 0%, var(--shared) 50%, var(--ksyusha) 100%);
+  padding: 48px 20px 32px; text-align: center; color: #fff;
+  position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header p { font-size: 0.9rem; opacity: 0.9; }
+.dark-toggle {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.2); border: none;
+  border-radius: 50%; width: 40px; height: 40px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px); transition: background var(--transition);
+}
+.dark-toggle:hover { background: rgba(255,255,255,0.35); }
+.container { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
+.week-list { display: flex; flex-direction: column; gap: 12px; }
+.week-card {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 20px 24px;
+  text-decoration: none; color: var(--text);
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex; align-items: center; gap: 16px;
+  border: 1px solid var(--border);
+}
+.week-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.week-card:active { transform: translateY(0); }
+.week-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--sasha), var(--ksyusha));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.week-info { flex: 1; }
+.week-title { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
+.week-dates { font-size: 0.82rem; color: var(--text-secondary); }
+.week-arrow { color: var(--text-secondary); font-size: 1.2rem; }
+.empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-secondary); font-size: 0.95rem;
+}
+.footer {
+  text-align: center; padding: 32px 16px;
+  color: var(--text-secondary); font-size: 0.78rem;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <button class="dark-toggle" id="darkToggle" aria-label="Переключить тему">🌙</button>
+  <h1>Наше меню</h1>
+  <p>Саша & Ксюша · еженедельные планы</p>
+</div>
+
+<div class="container">
+  <div class="week-list" id="weekList"></div>
+</div>
+
+<div class="footer">ПП-меню · рецепты · список покупок</div>
+
+<script>
+// Dark mode
+const toggle = document.getElementById('darkToggle');
+const stored = localStorage.getItem('nutrition-index:darkMode');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let isDark = stored !== null ? stored === 'true' : prefersDark;
+if (stored !== null) document.body.classList.toggle('dark', isDark);
+toggle.textContent = isDark || (stored === null && prefersDark) ? '☀️' : '🌙';
+toggle.addEventListener('click', () => {
+  isDark = !isDark;
+  document.body.classList.toggle('dark', isDark);
+  document.body.classList.toggle('light', !isDark);
+  toggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('nutrition-index:darkMode', isDark);
+});
+
+// Week list — manually maintained for GitHub Pages (static)
+const weeks = [
+  { file: 'Menu_Mar05.html', title: 'Неделя 5 · Март', dates: '23–29 марта 2026', icon: '🥗' },
+];
+
+const list = document.getElementById('weekList');
+if (weeks.length === 0) {
+  list.innerHTML = '<div class="empty">Пока нет меню. Скоро появится первая неделя!</div>';
+} else {
+  weeks.forEach(w => {
+    const a = document.createElement('a');
+    a.href = w.file;
+    a.className = 'week-card';
+    a.innerHTML = `
+      <div class="week-icon">${w.icon}</div>
+      <div class="week-info">
+        <div class="week-title">${w.title}</div>
+        <div class="week-dates">${w.dates}</div>
+      </div>
+      <span class="week-arrow">→</span>`;
+    list.appendChild(a);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1B1E" media="(prefers-color-scheme: dark)">
+<title>Меню на неделю — 23–29 марта 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --card: #FFFFFF;
+  --text: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --border: #E8E8E8;
+  --sasha: #D4764E;
+  --sasha-bg: #FDF0EB;
+  --ksyusha: #81D8D0;
+  --ksyusha-bg: #E8F8F6;
+  --shared: #A8C5A0;
+  --shared-bg: #EEF5EC;
+  --dessert-bg: #FFF8F0;
+  --snack-bg: #F0F8FF;
+  --hover: rgba(0,0,0,0.03);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+  --nav-height: 52px;
+  --header-height: 120px;
+}
+
+body.dark {
+  --bg: #1A1B1E;
+  --card: #2A2B2E;
+  --text: #E8E8E8;
+  --text-secondary: #9A9A9A;
+  --border: #3A3B3E;
+  --sasha-bg: #3A2A20;
+  --ksyusha-bg: #1E3230;
+  --shared-bg: #253025;
+  --dessert-bg: #2E2820;
+  --snack-bg: #202830;
+  --hover: rgba(255,255,255,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --bg: #1A1B1E;
+    --card: #2A2B2E;
+    --text: #E8E8E8;
+    --text-secondary: #9A9A9A;
+    --border: #3A3B3E;
+    --sasha-bg: #3A2A20;
+    --ksyusha-bg: #1E3230;
+    --shared-bg: #253025;
+    --dessert-bg: #2E2820;
+    --snack-bg: #202830;
+    --hover: rgba(255,255,255,0.04);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* --- HEADER --- */
+.header {
+  background: linear-gradient(135deg, var(--sasha) 0%, var(--shared) 50%, var(--ksyusha) 100%);
+  padding: 32px 20px 16px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.header p { font-size: 0.85rem; opacity: 0.9; font-weight: 400; }
+.dark-toggle {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.2); border: none;
+  border-radius: 50%; width: 36px; height: 36px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition);
+  backdrop-filter: blur(4px);
+}
+.dark-toggle:hover { background: rgba(255,255,255,0.35); }
+
+/* --- NAV --- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border-color var(--transition);
+}
+.nav-inner {
+  max-width: 800px; margin: 0 auto;
+  display: flex; flex-wrap: nowrap;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: 44px; align-items: center;
+  padding: 0 8px; gap: 2px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  flex-shrink: 0;
+  padding: 8px 10px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-inner a:hover { color: var(--text); background: var(--hover); }
+
+/* --- MAIN --- */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+section { margin-bottom: 32px; scroll-margin-top: 60px; }
+
+h2 {
+  font-size: 1.25rem; font-weight: 700;
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+h2 .badge {
+  font-size: 0.65rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 6px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.badge-sasha { background: var(--sasha); color: #fff; }
+.badge-ksyusha { background: var(--ksyusha); color: #1A1B1E; }
+.badge-shared { background: var(--shared); color: #1A1B1E; }
+
+h3 { font-size: 1rem; font-weight: 600; margin: 16px 0 8px; }
+
+/* --- DAILY SUMMARY --- */
+.daily-summary {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.daily-summary .day-header {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.daily-summary .day-header .day-cals {
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.daily-summary .day-body { padding: 0 16px 12px; }
+.meal-row {
+  display: flex; gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+  align-items: baseline;
+}
+.meal-row:last-child { border-bottom: none; }
+.meal-label {
+  flex-shrink: 0; width: 72px;
+  font-weight: 500; font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding-top: 1px;
+}
+.meal-content { flex: 1; }
+.meal-content a { color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--border); transition: all var(--transition); }
+.meal-content a:hover { border-bottom-color: var(--sasha); color: var(--sasha); }
+.sasha-section .meal-content a:hover { border-bottom-color: var(--sasha); color: var(--sasha); }
+.ksyusha-section .meal-content a:hover { border-bottom-color: var(--ksyusha); color: var(--ksyusha); }
+.meal-cals { font-size: 0.7rem; color: var(--text-secondary); margin-left: 4px; white-space: nowrap; }
+
+/* Section accent borders */
+.sasha-section .daily-summary { border-left: 3px solid var(--sasha); }
+.ksyusha-section .daily-summary { border-left: 3px solid var(--ksyusha); }
+
+/* --- RECIPE CARDS --- */
+details.recipe {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: background var(--transition), box-shadow var(--transition);
+  scroll-margin-top: 60px;
+}
+details.recipe[open] { box-shadow: var(--shadow-lg); }
+details.recipe summary {
+  padding: 14px 16px;
+  font-weight: 600; font-size: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex; align-items: center; gap: 8px;
+  transition: background var(--transition);
+  user-select: none;
+}
+details.recipe summary::-webkit-details-marker { display: none; }
+details.recipe summary::before {
+  content: '▸'; font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+details.recipe[open] summary::before { transform: rotate(90deg); }
+details.recipe summary:hover { background: var(--hover); }
+details.recipe summary .tag {
+  font-size: 0.6rem; font-weight: 600;
+  padding: 2px 7px; border-radius: 5px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  flex-shrink: 0; margin-left: auto;
+}
+.tag-sasha { background: var(--sasha); color: #fff; }
+.tag-ksyusha { background: var(--ksyusha); color: #1A1B1E; }
+.tag-shared { background: var(--shared); color: #1A1B1E; }
+
+.recipe-body {
+  padding: 0 16px 16px;
+  font-size: 0.82rem;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.recipe-meta {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-secondary);
+}
+.recipe-meta span { display: flex; align-items: center; gap: 4px; }
+.recipe-body h4 { font-size: 0.8rem; font-weight: 600; margin: 12px 0 6px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); }
+.recipe-body ul, .recipe-body ol { padding-left: 20px; margin-bottom: 8px; }
+.recipe-body li { margin-bottom: 3px; font-size: 0.82rem; }
+.recipe-tip { background: var(--hover); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px; font-size: 0.78rem; color: var(--text-secondary); }
+
+/* Dessert & Snack sections */
+.dessert-section details.recipe { border-left: 3px solid #E8A87C; }
+.snack-section details.recipe { border-left: 3px solid #7EC8E3; }
+
+/* --- PREP --- */
+.prep-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transition: background var(--transition);
+}
+.prep-card ul { padding-left: 20px; }
+.prep-card li { margin-bottom: 6px; font-size: 0.85rem; }
+
+/* --- SHOPPING LIST --- */
+.shopping-header {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 16px; align-items: center;
+}
+.shopping-progress {
+  font-size: 0.85rem; font-weight: 600; flex: 1;
+}
+.shopping-progress .bar {
+  height: 6px; background: var(--border); border-radius: 3px; margin-top: 6px; overflow: hidden;
+}
+.shopping-progress .bar-fill {
+  height: 100%; background: var(--shared); border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.shopping-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn {
+  padding: 7px 14px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); background: var(--card);
+  color: var(--text); font-size: 0.75rem; font-weight: 500;
+  cursor: pointer; transition: all var(--transition);
+  font-family: inherit;
+}
+.btn:hover { background: var(--hover); box-shadow: var(--shadow); }
+.btn-primary { background: var(--shared); color: #1A1B1E; border-color: var(--shared); }
+.btn-primary:hover { opacity: 0.85; }
+
+.shop-category {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: background var(--transition);
+}
+.shop-category-header {
+  padding: 10px 16px;
+  font-weight: 600; font-size: 0.85rem;
+  background: var(--hover);
+  border-bottom: 1px solid var(--border);
+}
+.shop-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition);
+  font-size: 0.82rem;
+  user-select: none;
+}
+.shop-item:last-child { border-bottom: none; }
+.shop-item:hover { background: var(--hover); }
+.shop-item input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0;
+  accent-color: var(--shared);
+  cursor: pointer;
+}
+.shop-item.checked .item-name { text-decoration: line-through; color: var(--text-secondary); }
+.item-name { flex: 1; }
+.item-name a { color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--border); }
+.item-name a:hover { color: var(--shared); border-bottom-color: var(--shared); }
+.shop-item.checked .item-name a { color: var(--text-secondary); }
+.item-qty { font-size: 0.75rem; color: var(--text-secondary); white-space: nowrap; flex-shrink: 0; }
+
+/* --- FOOTER --- */
+footer {
+  text-align: center; padding: 24px 16px 40px;
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.25rem; }
+  .container { padding: 12px; }
+  .meal-label { width: 60px; font-size: 0.68rem; }
+  .meal-row { font-size: 0.78rem; }
+  .nav-inner a { font-size: 0.72rem; padding: 8px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="dark-toggle" id="darkToggle" aria-label="Переключить тему">🌙</button>
+  <h1>Меню на неделю</h1>
+  <p>23–29 марта 2026 &nbsp;·&nbsp; Саша &amp; Ксюша</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#menu-sasha">Саша</a>
+    <a href="#menu-ksyusha">Ксюша</a>
+    <a href="#recipes">Рецепты</a>
+    <a href="#desserts">Десерты</a>
+    <a href="#snacks">Снэки</a>
+    <a href="#prep">Заготовки</a>
+    <a href="#shopping">Покупки</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ======================= САША ======================= -->
+<section id="menu-sasha" class="sasha-section">
+<h2><span class="badge badge-sasha">Саша</span> Меню на неделю</h2>
+<p style="font-size:0.8rem;color:var(--text-secondary);margin:-8px 0 16px;">~2000–2200 ккал · ~140–160г белка · 🟢 = общий ужин/завтрак</p>
+
+<!-- Понедельник -->
+<div class="daily-summary">
+  <div class="day-header">Понедельник <span class="day-cals">~1670 ккал · ~136г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-ovsyanka-yogurt">Овсянка с греческим йогуртом, ягодами и орехами</a><span class="meal-cals">~420 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-kurinye-bedra-bulgur">Куриные бёдрышки в духовке с булгуром и салатом</a><span class="meal-cals">~550 ккал, 45г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-losos-brokkoli-batat">Лосось с брокколи и бататом</a><span class="meal-cals">~500 ккал, 38г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-tvorog-koritsa-mindal">Творог 2% с корицей и миндалём</a><span class="meal-cals">~200 ккал, 25г</span></span></div>
+  </div>
+</div>
+
+<!-- Вторник -->
+<div class="daily-summary">
+  <div class="day-header">Вторник <span class="day-cals">~1560 ккал · ~125г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-omlet-belki-sasha">Омлет (1 яйцо + 3 белка) с помидорами и шпинатом</a><span class="meal-cals">~380 ккал, 32г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-losos-brokkoli-batat">лосось с бататом</a> + огурец<span class="meal-cals">~480 ккал, 36г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-tefteli-farsh-chechevitsa">Тефтели из куриного фарша с чечевицей</a><span class="meal-cals">~520 ккал, 42г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-kefir-mindal">Кефир 1% + горсть миндаля</a><span class="meal-cals">~180 ккал, 15г</span></span></div>
+  </div>
+</div>
+
+<!-- Среда -->
+<div class="daily-summary">
+  <div class="day-header">Среда <span class="day-cals">~1600 ккал · ~130г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-syrniki-tvorog">Сырники из обезжиренного творога с ягодами</a><span class="meal-cals">~400 ккал, 30г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-tefteli-farsh-chechevitsa">тефтели с чечевицей</a> + овощи<span class="meal-cals">~500 ккал, 40г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-treska-ovoschi-kinoa">Треска с овощами и киноа</a><span class="meal-cals">~480 ккал, 38г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-proteinovyj-puding">Протеиновый пудинг (творог + какао + банан)</a><span class="meal-cals">~220 ккал, 22г</span></span></div>
+  </div>
+</div>
+
+<!-- Четверг -->
+<div class="daily-summary">
+  <div class="day-header">Четверг <span class="day-cals">~1610 ккал · ~121г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-ovsyanoblin-tvorog">Овсяноблин с творогом и ягодами</a><span class="meal-cals">~420 ккал, 30г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-treska-ovoschi-kinoa">треска с киноа</a> + салат<span class="meal-cals">~460 ккал, 35г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-kurinye-bedra-grechka">Куриные бёдра в специях с гречкой и салатом</a><span class="meal-cals">~550 ккал, 44г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-yajco-ogurec-humus">1 яйцо вкрутую + огурец + хумус</a><span class="meal-cals">~180 ккал, 12г</span></span></div>
+  </div>
+</div>
+
+<!-- Пятница -->
+<div class="daily-summary">
+  <div class="day-header">Пятница <span class="day-cals">~1610 ккал · ~127г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-granola-yogurt">Гранола с греческим йогуртом и ягодами</a><span class="meal-cals">~400 ккал, 25г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-boul-farsh-fasol">Боул: куриный фарш с фасолью, рисом и сальсой</a><span class="meal-cals">~560 ккал, 45г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-krevetki-ovoschi-lapsha">Креветки с овощами и рисовой лапшой</a><span class="meal-cals">~450 ккал, 35г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-tvorog-orehi">Творог + орехи</a><span class="meal-cals">~200 ккал, 22г</span></span></div>
+  </div>
+</div>
+
+<!-- Суббота -->
+<div class="daily-summary">
+  <div class="day-header">Суббота <span class="day-cals">~1480 ккал · ~116г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-kasha-polba-tykva">Каша из полбы с тыквой и семечками</a> + йогурт<span class="meal-cals">~380 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-sup-chechevitsa-bedra">Суп из красной чечевицы с куриными бёдрышками</a><span class="meal-cals">~500 ккал, 38г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-kotlety-farsh-ovoschi">Котлеты из куриного фарша с печёными овощами</a><span class="meal-cals">~520 ккал, 42г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-belkovye-merengi">ПП-десерт: белковые меренги</a><span class="meal-cals">~80 ккал, 8г</span></span></div>
+  </div>
+</div>
+
+<!-- Воскресенье -->
+<div class="daily-summary">
+  <div class="day-header">Воскресенье <span class="day-cals">~1530 ккал · ~118г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content">🟢 <a href="#r-shakshuka">Шакшука (1 яйцо + белки) с хлебом</a><span class="meal-cals">~400 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-sup-chechevitsa-bedra">суп из чечевицы</a><span class="meal-cals">~450 ккал, 35г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-bedra-soevyj-batat">Куриные бёдра в соевом соусе и мёде с бататом</a><span class="meal-cals">~530 ккал, 40г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-tvorozhnye-maffiny">ПП-десерт: творожные маффины</a><span class="meal-cals">~150 ккал, 15г</span></span></div>
+  </div>
+</div>
+</section>
+
+<!-- ======================= КСЮША ======================= -->
+<section id="menu-ksyusha" class="ksyusha-section">
+<h2><span class="badge badge-ksyusha">Ксюша</span> Меню на неделю</h2>
+<p style="font-size:0.8rem;color:var(--text-secondary);margin:-8px 0 16px;">~1700–1800 ккал · ~65–80г белка · пескетарианка · 🟢 = общее блюдо</p>
+
+<!-- Понедельник -->
+<div class="daily-summary">
+  <div class="day-header">Понедельник <span class="day-cals">~1460 ккал · ~88г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-tosty-avokado-yajco">Тосты с авокадо и яйцом пашот</a><span class="meal-cals">~380 ккал, 16г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-salat-tunets-fasol">Салат с тунцом, белой фасолью и овощами</a><span class="meal-cals">~420 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-losos-brokkoli-batat">Лосось с брокколи и бататом</a><span class="meal-cals">~480 ккал, 32г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-yogurt-granola-k">Йогурт греческий с гранолой</a><span class="meal-cals">~180 ккал, 12г</span></span></div>
+  </div>
+</div>
+
+<!-- Вторник -->
+<div class="daily-summary">
+  <div class="day-header">Вторник <span class="day-cals">~1430 ккал · ~81г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-smuzi-boul">Смузи-боул (банан, ягоды, шпинат, йогурт, чиа)</a><span class="meal-cals">~350 ккал, 15г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-losos-brokkoli-batat">лосось с бататом</a> + салат<span class="meal-cals">~440 ккал, 30г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-pasta-krevetki">Паста с креветками в сливочно-чесночном соусе</a><span class="meal-cals">~480 ккал, 26г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-syr-vinograd">Сыр + виноград</a><span class="meal-cals">~160 ккал, 10г</span></span></div>
+  </div>
+</div>
+
+<!-- Среда -->
+<div class="daily-summary">
+  <div class="day-header">Среда <span class="day-cals">~1390 ккал · ~78г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-ovsyanka-oreh-maslo">Овсянка с ореховым маслом и ягодами</a><span class="meal-cals">~360 ккал, 14г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-sup-brokkoli-syr">Суп-крем из брокколи с сыром и тостами</a><span class="meal-cals">~380 ккал, 16г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-treska-ovoschi-kinoa">Треска с овощами и киноа</a><span class="meal-cals">~450 ккал, 30г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-tvorog-myod-semechki">Творог с мёдом и семечками</a><span class="meal-cals">~200 ккал, 18г</span></span></div>
+  </div>
+</div>
+
+<!-- Четверг -->
+<div class="daily-summary">
+  <div class="day-header">Четверг <span class="day-cals">~1420 ккал · ~74г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-yaichnitsa-feta">Яичница с помидорами и сыром фета + тост</a><span class="meal-cals">~400 ккал, 20г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content">Остатки: <a href="#r-treska-ovoschi-kinoa">треска с киноа</a> + руккола<span class="meal-cals">~420 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-chechevichnoe-karri">Чечевичное карри с кокосовым молоком и рисом</a><span class="meal-cals">~450 ккал, 18г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-kefir-banan">Кефир + банан</a><span class="meal-cals">~150 ккал, 8г</span></span></div>
+  </div>
+</div>
+
+<!-- Пятница -->
+<div class="daily-summary">
+  <div class="day-header">Пятница <span class="day-cals">~1390 ккал · ~71г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-pankejki-ovsyanka">Панкейки из овсянки с ягодами и йогуртом</a><span class="meal-cals">~380 ккал, 15г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-kapreze-fasol">Капрезе с моцареллой + фасолевый салат</a><span class="meal-cals">~400 ккал, 22г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content">🟢 <a href="#r-krevetki-ovoschi-lapsha">Креветки с овощами и рисовой лапшой</a><span class="meal-cals">~430 ккал, 28г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-keshyu-kuraga">Орехи кешью + курага</a><span class="meal-cals">~180 ккал, 6г</span></span></div>
+  </div>
+</div>
+
+<!-- Суббота -->
+<div class="daily-summary">
+  <div class="day-header">Суббота <span class="day-cals">~1420 ккал · ~54г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content"><a href="#r-tosty-rikotta">Тосты с рикоттой, мёдом и ягодами</a><span class="meal-cals">~340 ккал, 14г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-falafel-humus">Фалафель (из духовки) с хумусом и салатом</a><span class="meal-cals">~420 ккал, 16г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-rizotto-griby">Ризотто с грибами и пармезаном</a><span class="meal-cals">~460 ккал, 16г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-chia-puding">ПП-десерт: чиа-пудинг с кокосовым молоком</a><span class="meal-cals">~200 ккал, 8г</span></span></div>
+  </div>
+</div>
+
+<!-- Воскресенье -->
+<div class="daily-summary">
+  <div class="day-header">Воскресенье <span class="day-cals">~1370 ккал · ~72г Б</span></div>
+  <div class="day-body">
+    <div class="meal-row"><span class="meal-label">Завтрак</span><span class="meal-content">🟢 <a href="#r-shakshuka">Шакшука с сыром фета и хлебом</a><span class="meal-cals">~400 ккал, 22г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Обед</span><span class="meal-content"><a href="#r-minestrone">Минестроне с фасолью и пармезаном</a><span class="meal-cals">~380 ккал, 14г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Ужин</span><span class="meal-content"><a href="#r-ovoschi-halumi-kinoa">Запечённые овощи с халуми и киноа</a><span class="meal-cals">~440 ккал, 24г</span></span></div>
+    <div class="meal-row"><span class="meal-label">Перекус</span><span class="meal-content"><a href="#r-tvorozhnye-maffiny">ПП-десерт: творожные маффины</a><span class="meal-cals">~150 ккал, 12г</span></span></div>
+  </div>
+</div>
+</section>
+
+<!-- ======================= РЕЦЕПТЫ ======================= -->
+<section id="recipes">
+<h2>Рецепты</h2>
+
+<!-- ========= ОБЩИЕ РЕЦЕПТЫ ========= -->
+
+<details class="recipe" id="r-losos-brokkoli-batat">
+<summary>Лосось запечённый с брокколи и бататом <span class="tag tag-shared">🟢 Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 35 мин</span><span>🍽 2 порции</span><span>Пн ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Филе лосося — 2 шт. (по 150 г)</li>
+    <li>Батат — 2 средних</li>
+    <li>Брокколи — 300 г</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Лимон — 1 шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Соль, перец, паприка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Батат нарезать кубиками, выложить на противень, сбрызнуть маслом, запекать 15 мин при 200°C.</li>
+    <li>Брокколи разобрать на соцветия.</li>
+    <li>Лосося натереть солью, перцем, паприкой и лимонным соком.</li>
+    <li>Добавить брокколи и лосось к батату на противень.</li>
+    <li>Запекать ещё 15 мин при 200°C.</li>
+    <li>Подавать с долькой лимона.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> в контейнере в холодильнике до 2 дней. Разогревать в духовке 10 мин. <br><strong>Замена:</strong> лосось → форель или сёмга.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-treska-ovoschi-kinoa">
+<summary>Треска запечённая с овощами и киноа <span class="tag tag-shared">🟢 Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 30 мин</span><span>🍽 2 порции</span><span>Ср ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Филе трески — 2 шт. (по 150 г)</li>
+    <li>Киноа — 150 г</li>
+    <li>Кабачок — 1 средний</li>
+    <li>Помидоры черри — 200 г</li>
+    <li>Лук красный — 1 шт.</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Лимон — 1 шт.</li>
+    <li>Травы: тимьян, розмарин</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Киноа промыть, варить по инструкции (~15 мин).</li>
+    <li>Кабачок нарезать полукольцами, лук — дольками, черри — пополам.</li>
+    <li>Овощи выложить на противень, сбрызнуть маслом, запекать 10 мин при 200°C.</li>
+    <li>Треску натереть солью, перцем, травами, сбрызнуть лимоном.</li>
+    <li>Положить рыбу на овощи, запекать ещё 15 мин.</li>
+    <li>Подавать рыбу с овощами на подушке из киноа.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 2 дня в холодильнике. <br><strong>Замена:</strong> треска → минтай или пикша; киноа → кускус.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-krevetki-ovoschi-lapsha">
+<summary>Креветки с овощами и рисовой лапшой <span class="tag tag-shared">🟢 Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 2 порции</span><span>Пт ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Креветки очищенные — 300 г</li>
+    <li>Рисовая лапша — 150 г</li>
+    <li>Болгарский перец — 1 шт.</li>
+    <li>Морковь — 1 шт.</li>
+    <li>Цукини — 1 маленький</li>
+    <li>Имбирь свежий — 1 см</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Соевый соус — 2 ст. л.</li>
+    <li>Кунжутное масло — 1 ч. л.</li>
+    <li>Лайм — 1 шт.</li>
+    <li>Кунжут для подачи</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Лапшу залить кипятком на 5 мин, откинуть.</li>
+    <li>Овощи нарезать тонкой соломкой.</li>
+    <li>На сковороде разогреть кунжутное масло, обжарить чеснок и имбирь 30 сек.</li>
+    <li>Добавить овощи, жарить 3–4 мин на сильном огне.</li>
+    <li>Добавить креветки, жарить 2–3 мин до розового цвета.</li>
+    <li>Добавить лапшу, соевый соус, сок лайма. Перемешать, посыпать кунжутом.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> лучше есть свежим, можно хранить 1 день. <br><strong>Замена:</strong> рисовая лапша → соба; креветки → кальмары.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-shakshuka">
+<summary>Шакшука <span class="tag tag-shared">🟢 Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 2 порции</span><span>Вс завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Яйца — 2 шт. (Саша: 1 целое + 2 белка; Ксюша: 2 целых)</li>
+    <li>Помидоры в собственном соку — 400 г</li>
+    <li>Перец болгарский — 1 шт.</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Сыр фета — 50 г (для Ксюши)</li>
+    <li>Кумин, паприка, острый перец</li>
+    <li>Оливковое масло — 1 ч. л.</li>
+    <li>Цельнозерновой хлеб — 4 ломтика</li>
+    <li>Зелень (петрушка, кинза)</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Лук и перец нарезать, обжарить на масле 5 мин.</li>
+    <li>Добавить чеснок, специи, обжарить 30 сек.</li>
+    <li>Добавить помидоры, тушить 10 мин до загустения.</li>
+    <li>Сделать лунки, разбить яйца (Саша: 1 целое + 2 белка отдельно; Ксюша: 2 целых).</li>
+    <li>Накрыть крышкой, готовить 5–7 мин до готовности яиц.</li>
+    <li>Ксюшину порцию посыпать фетой. Подавать с хлебом и зеленью.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> лучше есть свежей. <br><strong>Замена:</strong> помидоры в банке → 4 свежих помидора.</div>
+</div>
+</details>
+
+<!-- ========= САША — РЕЦЕПТЫ ========= -->
+
+<details class="recipe" id="r-ovsyanka-yogurt">
+<summary>Овсянка с греческим йогуртом, ягодами и орехами <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Пн завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Овсяные хлопья (долгой варки) — 60 г</li>
+    <li>Вода — 200 мл</li>
+    <li>Греческий йогурт 2% — 100 г</li>
+    <li>Ягоды (замороженные или свежие) — 80 г</li>
+    <li>Грецкие орехи — 15 г (3–4 шт.)</li>
+    <li>Корица — щепотка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Овсянку залить водой, варить 5–7 мин, помешивая.</li>
+    <li>Переложить в миску.</li>
+    <li>Сверху выложить йогурт и ягоды.</li>
+    <li>Посыпать дроблёными грецкими орехами и корицей.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Замена:</strong> грецкие орехи → миндаль; йогурт → скир.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-kurinye-bedra-bulgur">
+<summary>Куриные бёдрышки в духовке с булгуром и салатом <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 30 мин + 25 мин в духовке</span><span>🍽 2 порции</span><span>Пн обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриные бёдра без кожи — 4 шт. (~400 г)</li>
+    <li>Булгур — 120 г</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Паприка, куркума, чесночный порошок — по ½ ч. л.</li>
+    <li>Огурец — 1 шт.</li>
+    <li>Помидор — 1 шт.</li>
+    <li>Лимонный сок — 1 ст. л.</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Бёдра натереть специями, солью и маслом. Выложить на пергамент.</li>
+    <li>Запекать в духовке при 200°C 25 мин.</li>
+    <li>Булгур залить кипятком 1:2, накрыть крышкой, оставить на 15 мин.</li>
+    <li>Огурец и помидор нарезать, заправить лимонным соком и щепоткой соли.</li>
+    <li>Подавать бёдра с булгуром и салатом.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 2 дня в холодильнике (салат готовить свежий). <br><strong>Замена:</strong> булгур → бурый рис.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-tvorog-koritsa-mindal">
+<summary>Творог 2% с корицей и миндалём <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 3 мин</span><span>🍽 1 порция</span><span>Пн перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог 2% — 150 г</li>
+    <li>Миндаль — 10 г (5–6 шт.)</li>
+    <li>Корица — щепотка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Творог выложить в миску.</li>
+    <li>Посыпать корицей и дроблёным миндалём.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-omlet-belki-sasha">
+<summary>Омлет из яйца и белков с помидорами и шпинатом <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Вт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Яйцо — 1 шт.</li>
+    <li>Яичные белки — 3 шт. (или 90 мл жидких белков)</li>
+    <li>Помидор — 1 средний</li>
+    <li>Шпинат — горсть</li>
+    <li>Цельнозерновой хлеб — 1 ломтик</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Яйцо и белки взбить с солью и перцем.</li>
+    <li>На антипригарную сковороду вылить яичную смесь.</li>
+    <li>Сверху разложить нарезанный помидор и шпинат.</li>
+    <li>Готовить под крышкой на среднем огне 4–5 мин.</li>
+    <li>Подавать с ломтиком цельнозернового хлеба.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-tefteli-farsh-chechevitsa">
+<summary>Тефтели из куриного фарша в томатном соусе с чечевицей <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 20 мин + 25 мин в духовке</span><span>🍽 3 порции</span><span>Вт ужин + Ср обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриный фарш — 400 г</li>
+    <li>Лук — 1 шт. (мелко)</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Овсяные хлопья — 2 ст. л. (вместо хлеба)</li>
+    <li>Яичный белок — 1 шт.</li>
+    <li>Помидоры в собственном соку — 400 г</li>
+    <li>Зелёная чечевица — 150 г</li>
+    <li>Паприка, орегано — по ½ ч. л.</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Чечевицу отварить до мягкости (~20 мин), откинуть.</li>
+    <li>Фарш смешать с луком, чесноком, хлопьями, белком, специями. Сформировать тефтели.</li>
+    <li>Выложить в форму для запекания.</li>
+    <li>Залить помидорами, приправить орегано.</li>
+    <li>Запекать в духовке при 190°C 25 мин.</li>
+    <li>Подавать тефтели в соусе с чечевицей.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике. Отлично разогревается. <br><strong>Замена:</strong> чечевица → бурый рис; помидоры → томатная паста + вода.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-kefir-mindal">
+<summary>Кефир 1% + горсть миндаля <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 1 мин</span><span>🍽 1 порция</span><span>Вт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Кефир 1% — 250 мл</li>
+    <li>Миндаль — 15 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Налить кефир, взять горсть миндаля.</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-syrniki-tvorog">
+<summary>Сырники из обезжиренного творога с ягодами <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 1 порция (6 шт.)</span><span>Ср завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог обезжиренный — 200 г</li>
+    <li>Яичный белок — 1 шт.</li>
+    <li>Овсяная мука — 2 ст. л.</li>
+    <li>Ягоды — 60 г</li>
+    <li>Ванилин — щепотка</li>
+    <li>Подсластитель — по вкусу</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Творог размять, смешать с белком, мукой, ванилином.</li>
+    <li>Сформировать 6 сырников.</li>
+    <li>Выложить на противень с пергаментом.</li>
+    <li>Запекать в духовке при 180°C 15–18 мин до золотистого цвета.</li>
+    <li>Подавать с ягодами.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Замена:</strong> овсяная мука → рисовая мука; ягоды → банан.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-proteinovyj-puding">
+<summary>Протеиновый пудинг (творог + какао + банан) <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 5 мин</span><span>🍽 1 порция</span><span>Ср перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог 2% — 150 г</li>
+    <li>Банан — ½ шт.</li>
+    <li>Какао-порошок — 1 ст. л.</li>
+    <li>Подсластитель — по вкусу</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Творог, банан и какао смешать погружным блендером до однородности.</li>
+    <li>По желанию добавить подсластитель.</li>
+    <li>Подавать сразу или охладить 15 мин в холодильнике.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-ovsyanoblin-tvorog">
+<summary>Овсяноблин с творогом и ягодами <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 15 мин</span><span>🍽 1 порция</span><span>Чт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Овсяные хлопья — 40 г</li>
+    <li>Яичный белок — 2 шт.</li>
+    <li>Молоко 1.5% — 50 мл</li>
+    <li>Творог 2% — 80 г</li>
+    <li>Ягоды — 50 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Овсянку, белки и молоко смешать блендером.</li>
+    <li>Вылить на разогретую антипригарную сковороду тонким слоем.</li>
+    <li>Жарить 2–3 мин с каждой стороны.</li>
+    <li>Начинить творогом и ягодами, свернуть.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-kurinye-bedra-grechka">
+<summary>Куриные бёдра в специях с гречкой и салатом <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 15 мин + 25 мин в духовке</span><span>🍽 2 порции</span><span>Чт ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриные бёдра без кожи — 4 шт. (~400 г)</li>
+    <li>Гречка — 120 г</li>
+    <li>Паприка, куркума, чили — по ½ ч. л.</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Листья салата — горсть</li>
+    <li>Огурец — 1 шт.</li>
+    <li>Помидор — 1 шт.</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Бёдра замариновать в специях и масле.</li>
+    <li>Запекать в духовке при 200°C 25 мин.</li>
+    <li>Гречку сварить по инструкции.</li>
+    <li>Салат из огурца, помидора и листьев.</li>
+    <li>Подавать бёдра с гречкой и салатом.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> бёдра + гречка — 2 дня в холодильнике. <br><strong>Замена:</strong> гречка → перловка.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-yajco-ogurec-humus">
+<summary>Яйцо вкрутую + огурец + хумус <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 3 мин (яйцо заранее)</span><span>🍽 1 порция</span><span>Чт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Яйцо — 1 шт.</li>
+    <li>Огурец — 1 шт.</li>
+    <li>Хумус — 2 ст. л.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Яйцо сварить вкрутую (10 мин), очистить.</li>
+    <li>Огурец нарезать палочками.</li>
+    <li>Подавать с хумусом для макания.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-granola-yogurt">
+<summary>Гранола с греческим йогуртом и ягодами <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 3 мин</span><span>🍽 1 порция</span><span>Пт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Гранола (низкосахарная) — 50 г</li>
+    <li>Греческий йогурт 2% — 150 г</li>
+    <li>Ягоды — 80 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Йогурт выложить в миску.</li>
+    <li>Сверху гранола и ягоды.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-boul-farsh-fasol">
+<summary>Боул: куриный фарш с фасолью, рисом и сальсой <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 2 порции</span><span>Пт обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриный фарш — 300 г</li>
+    <li>Фасоль красная (консервированная) — 1 банка (240 г)</li>
+    <li>Рис бурый — 100 г</li>
+    <li>Помидор — 2 шт.</li>
+    <li>Лук красный — ½ шт.</li>
+    <li>Перец болгарский — 1 шт.</li>
+    <li>Лайм — 1 шт.</li>
+    <li>Кумин, паприка — по ½ ч. л.</li>
+    <li>Кинза — пучок</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Рис сварить по инструкции.</li>
+    <li>Фарш обжарить на сухой сковороде с кумином и паприкой, разбивая комочки.</li>
+    <li>Добавить фасоль, прогреть 3 мин.</li>
+    <li>Сальса: помидоры, лук, кинза, сок лайма, соль.</li>
+    <li>В миску: рис, фарш с фасолью, нарезанный перец, сальса.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> фарш+фасоль — 2 дня; сальсу делать свежую.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-tvorog-orehi">
+<summary>Творог + орехи <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 2 мин</span><span>🍽 1 порция</span><span>Пт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог 2% — 150 г</li>
+    <li>Смесь орехов (грецкие, миндаль) — 15 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Творог в миску, сверху дроблёные орехи.</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-kasha-polba-tykva">
+<summary>Каша из полбы с тыквой и семечками <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 1 порция</span><span>Сб завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Полба (крупа) — 60 г</li>
+    <li>Тыква (кубиками) — 100 г</li>
+    <li>Вода — 250 мл</li>
+    <li>Тыквенные семечки — 10 г</li>
+    <li>Греческий йогурт — 50 г</li>
+    <li>Корица — щепотка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Полбу и тыкву залить водой, варить 20 мин на медленном огне.</li>
+    <li>Когда каша загустеет, размять тыкву вилкой.</li>
+    <li>Подавать с йогуртом, семечками и корицей.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-sup-chechevitsa-bedra">
+<summary>Суп из красной чечевицы с куриными бёдрышками <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 35 мин</span><span>🍽 4 порции</span><span>Сб обед + Вс обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриные бёдра без кожи — 3 шт. (~300 г)</li>
+    <li>Красная чечевица — 150 г</li>
+    <li>Морковь — 1 шт.</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 3 зубчика</li>
+    <li>Томатная паста — 1 ст. л.</li>
+    <li>Куркума, кумин — по ½ ч. л.</li>
+    <li>Вода — 1 л</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Лимон — ½ шт.</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Лук и морковь нарезать, обжарить на масле 5 мин.</li>
+    <li>Добавить чеснок, томатную пасту, специи, обжарить 1 мин.</li>
+    <li>Добавить воду, чечевицу и целые бёдра.</li>
+    <li>Варить 25 мин на среднем огне.</li>
+    <li>Вынуть бёдра, разобрать на волокна, вернуть в суп.</li>
+    <li>Половину супа пробить блендером для кремовости. Добавить лимонный сок.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 4 дня в холодильнике, можно заморозить. <br><strong>Замена:</strong> красная чечевица → жёлтый горох (варить дольше).</div>
+</div>
+</details>
+
+<details class="recipe" id="r-kotlety-farsh-ovoschi">
+<summary>Котлеты из куриного фарша в духовке с печёными овощами <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 15 мин + 25 мин в духовке</span><span>🍽 2 порции</span><span>Сб ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриный фарш — 350 г</li>
+    <li>Лук — 1 шт. (мелко)</li>
+    <li>Овсяные хлопья — 2 ст. л.</li>
+    <li>Яичный белок — 1 шт.</li>
+    <li>Кабачок — 1 шт.</li>
+    <li>Баклажан — 1 шт.</li>
+    <li>Перец болгарский — 1 шт.</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Чеснок, паприка, травы, соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Фарш смешать с луком, белком, хлопьями, чесноком, специями.</li>
+    <li>Сформировать котлеты, выложить на противень с пергаментом.</li>
+    <li>Овощи нарезать крупно, сбрызнуть маслом и специями.</li>
+    <li>Выложить овощи рядом с котлетами.</li>
+    <li>Запекать при 190°C 25 мин.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 2 дня в холодильнике.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-bedra-soevyj-batat">
+<summary>Куриные бёдра в соевом соусе и мёде с бататом <span class="tag tag-sasha">Саша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин + 30 мин в духовке</span><span>🍽 2 порции</span><span>Вс ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Куриные бёдра без кожи — 4 шт. (~400 г)</li>
+    <li>Батат — 2 средних</li>
+    <li>Соевый соус — 3 ст. л.</li>
+    <li>Мёд — 1 ст. л.</li>
+    <li>Чеснок — 3 зубчика (тёртый)</li>
+    <li>Имбирь — 1 ч. л. (тёртый)</li>
+    <li>Кунжут — 1 ч. л.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Смешать маринад: соевый соус, мёд, чеснок, имбирь.</li>
+    <li>Замариновать бёдра минимум на 15 мин (лучше на ночь).</li>
+    <li>Батат нарезать дольками, выложить на противень.</li>
+    <li>Сверху бёдра с маринадом.</li>
+    <li>Запекать при 200°C 30 мин.</li>
+    <li>Посыпать кунжутом перед подачей.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Замена:</strong> батат → картофель (ГИ выше, но можно); мёд → кленовый сироп.</div>
+</div>
+</details>
+
+<!-- ========= КСЮША — РЕЦЕПТЫ ========= -->
+
+<details class="recipe" id="r-tosty-avokado-yajco">
+<summary>Тосты с авокадо и яйцом пашот <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Пн завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Цельнозерновой хлеб — 2 ломтика</li>
+    <li>Авокадо — ½ шт.</li>
+    <li>Яйцо — 1 шт.</li>
+    <li>Лимонный сок — пару капель</li>
+    <li>Хлопья чили, соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Хлеб подсушить в тостере.</li>
+    <li>Авокадо размять вилкой с лимонным соком, солью и перцем.</li>
+    <li>Яйцо пашот: в кипящую воду с уксусом, варить 3 мин.</li>
+    <li>Выложить авокадо на тосты, сверху яйцо пашот.</li>
+    <li>Посыпать хлопьями чили.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-salat-tunets-fasol">
+<summary>Салат с тунцом, белой фасолью и овощами <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Пн обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Тунец консервированный в собственном соку — 1 банка (150 г)</li>
+    <li>Фасоль белая (консервированная) — 100 г</li>
+    <li>Огурец — 1 шт.</li>
+    <li>Помидор — 1 шт.</li>
+    <li>Лук красный — ¼ шт.</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Лимонный сок — 1 ст. л.</li>
+    <li>Листья салата</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Тунца размять вилкой.</li>
+    <li>Овощи нарезать, лук — тонкими полукольцами.</li>
+    <li>Смешать всё с фасолью на подушке из салата.</li>
+    <li>Заправить маслом и лимонным соком.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-yogurt-granola-k">
+<summary>Йогурт греческий с гранолой <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 2 мин</span><span>🍽 1 порция</span><span>Пн перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Греческий йогурт — 120 г</li>
+    <li>Гранола — 30 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Йогурт + гранола в миску.</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-smuzi-boul">
+<summary>Смузи-боул с бананом, ягодами и чиа <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 7 мин</span><span>🍽 1 порция</span><span>Вт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Банан (замороженный) — 1 шт.</li>
+    <li>Ягоды замороженные — 80 г</li>
+    <li>Шпинат — горсть</li>
+    <li>Греческий йогурт — 100 г</li>
+    <li>Семена чиа — 1 ст. л.</li>
+    <li>Топпинги: гранола, ягоды свежие, кокосовая стружка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Банан, ягоды, шпинат и йогурт пробить погружным блендером.</li>
+    <li>Перелить в миску.</li>
+    <li>Сверху чиа, гранола, свежие ягоды.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-pasta-krevetki">
+<summary>Паста с креветками в сливочно-чесночном соусе <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 20 мин</span><span>🍽 2 порции</span><span>Вт ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Паста (спагетти или пенне) — 160 г</li>
+    <li>Креветки очищенные — 200 г</li>
+    <li>Сливки 15% — 100 мл</li>
+    <li>Чеснок — 3 зубчика</li>
+    <li>Пармезан — 30 г</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Петрушка — пучок</li>
+    <li>Соль, перец, хлопья чили</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Пасту сварить по инструкции, сохранить ½ стакана воды.</li>
+    <li>На масле обжарить чеснок 30 сек.</li>
+    <li>Добавить креветки, жарить 2 мин с каждой стороны.</li>
+    <li>Влить сливки, довести до кипения, добавить пармезан.</li>
+    <li>Добавить пасту и немного воды для консистенции.</li>
+    <li>Посыпать петрушкой и перцем.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 1 день (паста размокает). <br><strong>Замена:</strong> сливки → кокосовые сливки (безмолочная версия).</div>
+</div>
+</details>
+
+<details class="recipe" id="r-syr-vinograd">
+<summary>Сыр + виноград <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 2 мин</span><span>🍽 1 порция</span><span>Вт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Сыр (гауда, эмменталь или бри) — 30 г</li>
+    <li>Виноград — 80 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Нарезать сыр, промыть виноград. Готово!</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-ovsyanka-oreh-maslo">
+<summary>Овсянка с ореховым маслом и ягодами <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Ср завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Овсяные хлопья — 50 г</li>
+    <li>Вода или молоко — 200 мл</li>
+    <li>Ореховое масло (арахисовое или миндальное) — 1 ст. л.</li>
+    <li>Ягоды — 60 г</li>
+    <li>Мёд — 1 ч. л.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Овсянку сварить на воде или молоке 5–7 мин.</li>
+    <li>Добавить ореховое масло, перемешать.</li>
+    <li>Сверху ягоды и мёд.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-sup-brokkoli-syr">
+<summary>Суп-крем из брокколи с сыром и тостами <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 25 мин</span><span>🍽 2 порции</span><span>Ср обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Брокколи — 400 г</li>
+    <li>Картофель — 1 средний</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Овощной бульон — 500 мл</li>
+    <li>Сыр чеддер (или гауда) — 50 г</li>
+    <li>Сливки 15% — 50 мл</li>
+    <li>Цельнозерновой хлеб — 2 ломтика</li>
+    <li>Соль, перец, мускатный орех</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Лук и чеснок обжарить, добавить нарезанные картофель и брокколи.</li>
+    <li>Залить бульоном, варить 15 мин.</li>
+    <li>Пробить погружным блендером до кремовой консистенции.</li>
+    <li>Добавить тёртый сыр и сливки, перемешать.</li>
+    <li>Подавать с тостами.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике. <br><strong>Замена:</strong> брокколи → цветная капуста.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-tvorog-myod-semechki">
+<summary>Творог с мёдом и семечками <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 2 мин</span><span>🍽 1 порция</span><span>Ср перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог 5% — 120 г</li>
+    <li>Мёд — 1 ч. л.</li>
+    <li>Семечки (тыквенные или подсолнечные) — 10 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Творог в миску, полить мёдом, посыпать семечками.</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-yaichnitsa-feta">
+<summary>Яичница с помидорами и сыром фета <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Чт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Яйца — 2 шт.</li>
+    <li>Помидоры черри — 6 шт.</li>
+    <li>Сыр фета — 30 г</li>
+    <li>Цельнозерновой хлеб — 1 ломтик</li>
+    <li>Оливковое масло — ½ ч. л.</li>
+    <li>Базилик, соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Черри разрезать пополам, обжарить на масле 2 мин.</li>
+    <li>Разбить яйца в сковороду.</li>
+    <li>Сверху раскрошить фету.</li>
+    <li>Готовить под крышкой 3–4 мин.</li>
+    <li>Подавать с тостом и базиликом.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-chechevichnoe-karri">
+<summary>Чечевичное карри с кокосовым молоком и рисом <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 30 мин</span><span>🍽 2 порции</span><span>Чт ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Красная чечевица — 150 г</li>
+    <li>Кокосовое молоко — 200 мл</li>
+    <li>Помидоры в собственном соку — 200 г</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 3 зубчика</li>
+    <li>Имбирь — 1 см (тёртый)</li>
+    <li>Карри-паста или порошок карри — 1 ст. л.</li>
+    <li>Рис басмати — 100 г</li>
+    <li>Шпинат — горсть</li>
+    <li>Кинза для подачи</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Рис сварить по инструкции.</li>
+    <li>Лук, чеснок и имбирь обжарить 3 мин.</li>
+    <li>Добавить карри, обжарить 30 сек.</li>
+    <li>Добавить чечевицу, помидоры и кокосовое молоко. Варить 20 мин.</li>
+    <li>В конце добавить шпинат, помешать.</li>
+    <li>Подавать с рисом и кинзой.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике. <br><strong>Замена:</strong> кокосовое молоко → сливки 15%.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-kefir-banan">
+<summary>Кефир + банан <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 2 мин</span><span>🍽 1 порция</span><span>Чт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Кефир — 200 мл</li>
+    <li>Банан — 1 шт.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Выпить кефир, съесть банан. Или пробить блендером в смузи.</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-pankejki-ovsyanka">
+<summary>Панкейки из овсянки с ягодами и йогуртом <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 20 мин</span><span>🍽 1 порция (4–5 шт.)</span><span>Пт завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Овсяные хлопья — 50 г (размолоть в муку)</li>
+    <li>Банан — 1 шт.</li>
+    <li>Яйцо — 1 шт.</li>
+    <li>Молоко — 50 мл</li>
+    <li>Разрыхлитель — ½ ч. л.</li>
+    <li>Ягоды — 60 г</li>
+    <li>Греческий йогурт — 50 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Банан размять, смешать с яйцом и молоком.</li>
+    <li>Добавить овсяную муку и разрыхлитель.</li>
+    <li>Жарить панкейки на антипригарной сковороде по 2 мин с каждой стороны.</li>
+    <li>Подавать стопкой с йогуртом и ягодами.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-kapreze-fasol">
+<summary>Капрезе с моцареллой + фасолевый салат <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин</span><span>🍽 1 порция</span><span>Пт обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Моцарелла — 100 г</li>
+    <li>Помидоры — 2 средних</li>
+    <li>Базилик свежий — пучок</li>
+    <li>Фасоль белая (консервированная) — 100 г</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Бальзамический уксус — 1 ч. л.</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Моцареллу и помидоры нарезать кружочками, чередовать на тарелке.</li>
+    <li>Фасоль промыть, добавить рядом.</li>
+    <li>Полить маслом и бальзамиком, посыпать базиликом.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-keshyu-kuraga">
+<summary>Орехи кешью + курага <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 1 мин</span><span>🍽 1 порция</span><span>Пт перекус</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Кешью — 20 г</li>
+    <li>Курага — 30 г (4–5 шт.)</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol><li>Взять горсть кешью и курагу. Готово!</li></ol>
+</div>
+</details>
+
+<details class="recipe" id="r-tosty-rikotta">
+<summary>Тосты с рикоттой, мёдом и ягодами <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 5 мин</span><span>🍽 1 порция</span><span>Сб завтрак</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Цельнозерновой хлеб — 2 ломтика</li>
+    <li>Рикотта — 60 г</li>
+    <li>Мёд — 1 ч. л.</li>
+    <li>Ягоды свежие — 50 г</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Хлеб подсушить.</li>
+    <li>Намазать рикотту, полить мёдом, выложить ягоды.</li>
+  </ol>
+</div>
+</details>
+
+<details class="recipe" id="r-falafel-humus">
+<summary>Фалафель (из духовки) с хумусом и салатом <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 20 мин + 25 мин в духовке</span><span>🍽 2 порции</span><span>Сб обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Нут (консервированный) — 1 банка (400 г)</li>
+    <li>Лук — ½ шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Петрушка — пучок</li>
+    <li>Кумин — 1 ч. л.</li>
+    <li>Мука (цельнозерновая) — 2 ст. л.</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Хумус — 4 ст. л.</li>
+    <li>Салат айсберг, помидор, огурец</li>
+    <li>Лепёшка или питта (по желанию)</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Нут промыть, обсушить.</li>
+    <li>В блендере пробить нут, лук, чеснок, петрушку, кумин до рубленой массы (не пюре).</li>
+    <li>Добавить муку, перемешать. Сформировать шарики.</li>
+    <li>Выложить на противень, сбрызнуть маслом.</li>
+    <li>Запекать при 200°C 25 мин, перевернув через 15 мин.</li>
+    <li>Подавать с хумусом и свежим салатом.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике, можно заморозить до запекания.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-rizotto-griby">
+<summary>Ризотто с грибами и пармезаном <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 30 мин</span><span>🍽 2 порции</span><span>Сб ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Рис арборио — 150 г</li>
+    <li>Шампиньоны — 200 г</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Белое вино (сухое) — 50 мл (можно без)</li>
+    <li>Овощной бульон (тёплый) — 600 мл</li>
+    <li>Пармезан — 40 г</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Тимьян — пара веточек</li>
+    <li>Соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Грибы нарезать и обжарить до золотистого цвета, отложить.</li>
+    <li>Лук и чеснок обжарить на масле.</li>
+    <li>Добавить рис, обжарить 1 мин.</li>
+    <li>Влить вино, дождаться впитывания. Добавлять бульон по 100 мл, помешивая.</li>
+    <li>Когда рис готов (~18 мин), добавить грибы, пармезан и тимьян.</li>
+    <li>Перемешать, дать постоять 2 мин.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Замена:</strong> арборио → круглый рис; шампиньоны → вешенки.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-minestrone">
+<summary>Минестроне с фасолью и пармезаном <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 30 мин</span><span>🍽 3 порции</span><span>Вс обед</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Фасоль красная (консервированная) — 1 банка</li>
+    <li>Кабачок — 1 шт.</li>
+    <li>Морковь — 1 шт.</li>
+    <li>Сельдерей — 2 стебля</li>
+    <li>Помидоры в собственном соку — 400 г</li>
+    <li>Паста мелкая (диталини) — 50 г</li>
+    <li>Лук — 1 шт.</li>
+    <li>Чеснок — 2 зубчика</li>
+    <li>Овощной бульон — 600 мл</li>
+    <li>Пармезан — 30 г (для подачи)</li>
+    <li>Оливковое масло, базилик, соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Лук, морковь, сельдерей нарезать и обжарить 5 мин.</li>
+    <li>Добавить чеснок, кабачок, томаты и бульон.</li>
+    <li>Варить 15 мин, добавить пасту и фасоль.</li>
+    <li>Варить ещё 10 мин до готовности пасты.</li>
+    <li>Подавать с тёртым пармезаном и базиликом.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня, вкуснее на второй день.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-ovoschi-halumi-kinoa">
+<summary>Запечённые овощи с халуми и киноа <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 15 мин + 25 мин в духовке</span><span>🍽 2 порции</span><span>Вс ужин</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Халуми — 200 г</li>
+    <li>Киноа — 100 г</li>
+    <li>Баклажан — 1 шт.</li>
+    <li>Перец болгарский — 1 шт.</li>
+    <li>Помидоры черри — 150 г</li>
+    <li>Кабачок — 1 маленький</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Бальзамический уксус — 1 ст. л.</li>
+    <li>Орегано, тимьян, соль, перец</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Киноа сварить по инструкции.</li>
+    <li>Овощи нарезать крупно, выложить на противень с маслом и травами.</li>
+    <li>Запекать 20 мин при 200°C.</li>
+    <li>Халуми нарезать ломтиками, добавить на противень.</li>
+    <li>Запекать ещё 5 мин.</li>
+    <li>Подавать овощи и халуми на киноа, сбрызнув бальзамиком.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Замена:</strong> халуми → фета (не запекать, посыпать сверху).</div>
+</div>
+</details>
+
+</section>
+
+<!-- ======================= ДЕСЕРТЫ ======================= -->
+<section id="desserts" class="dessert-section">
+<h2>ПП-десерты</h2>
+
+<details class="recipe" id="r-belkovye-merengi">
+<summary>Белковые меренги <span class="tag tag-shared">Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин + 90 мин в духовке</span><span>🍽 ~20 шт.</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Яичные белки — 3 шт.</li>
+    <li>Подсластитель (эритритол) — 60 г</li>
+    <li>Лимонный сок — ½ ч. л.</li>
+    <li>Ванилин — щепотка</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Белки взбить миксером до мягких пиков.</li>
+    <li>Постепенно добавить подсластитель, продолжая взбивать до жёстких пиков.</li>
+    <li>Добавить лимонный сок и ванилин.</li>
+    <li>Отсадить «шапочки» на противень с пергаментом.</li>
+    <li>Запекать при 100°C 90 мин. Не открывать духовку!</li>
+    <li>Выключить духовку, оставить меренги внутри до полного остывания.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> в герметичном контейнере до 5 дней. <br>~4 ккал на штуку.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-tvorozhnye-maffiny">
+<summary>Творожные маффины <span class="tag tag-shared">Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 10 мин + 25 мин в духовке</span><span>🍽 8 шт.</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Творог 2% — 250 г</li>
+    <li>Овсяная мука — 60 г</li>
+    <li>Яйцо — 1 шт.</li>
+    <li>Банан — 1 шт. (спелый)</li>
+    <li>Разрыхлитель — 1 ч. л.</li>
+    <li>Ванилин — щепотка</li>
+    <li>Подсластитель — по вкусу</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Банан размять вилкой.</li>
+    <li>Смешать все ингредиенты до однородности.</li>
+    <li>Разложить по силиконовым формочкам.</li>
+    <li>Запекать при 180°C 20–25 мин.</li>
+    <li>Остудить перед подачей.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике. <br>~75 ккал на штуку.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-chia-puding">
+<summary>Чиа-пудинг с кокосовым молоком <span class="tag tag-ksyusha">Ксюша</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 5 мин + 4 ч в холодильнике</span><span>🍽 2 порции</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Семена чиа — 4 ст. л.</li>
+    <li>Кокосовое молоко — 300 мл</li>
+    <li>Ванильный экстракт — ½ ч. л.</li>
+    <li>Подсластитель — по вкусу</li>
+    <li>Ягоды для топпинга — 60 г</li>
+    <li>Кокосовая стружка — 1 ч. л.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Чиа залить кокосовым молоком, добавить ваниль и подсластитель.</li>
+    <li>Перемешать, оставить на 5 мин, перемешать ещё раз.</li>
+    <li>Убрать в холодильник минимум на 4 часа (лучше на ночь).</li>
+    <li>Подавать с ягодами и кокосовой стружкой.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в холодильнике. Идеально готовить вечером!</div>
+</div>
+</details>
+
+</section>
+
+<!-- ======================= СНЭКИ ======================= -->
+<section id="snacks" class="snack-section">
+<h2>ПП-снэки для кино</h2>
+
+<details class="recipe" id="r-zapechyonnyj-nut">
+<summary>Запечённый нут <span class="tag tag-shared">Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 5 мин + 30 мин в духовке</span><span>🍽 3 порции</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Нут (консервированный) — 1 банка (400 г)</li>
+    <li>Оливковое масло — 1 ст. л.</li>
+    <li>Паприка — 1 ч. л.</li>
+    <li>Чесночный порошок — ½ ч. л.</li>
+    <li>Соль — ½ ч. л.</li>
+    <li>Перец чили — щепотка (по желанию)</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Нут промыть и хорошо обсушить бумажным полотенцем.</li>
+    <li>Смешать с маслом и специями.</li>
+    <li>Выложить в один слой на противень с пергаментом.</li>
+    <li>Запекать при 200°C 25–30 мин, встряхивая каждые 10 мин.</li>
+    <li>Дать остыть — станет ещё хрустящее.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 3 дня в открытой миске (в закрытой размокает). <br>~120 ккал на порцию.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-syrnye-chipsy">
+<summary>Сырные чипсы из пармезана <span class="tag tag-shared">Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 5 мин + 8 мин в духовке</span><span>🍽 2 порции</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Пармезан (мелко тёртый) — 80 г</li>
+    <li>Орегано или паприка — щепотка (по желанию)</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Пармезан натереть на мелкой тёрке.</li>
+    <li>На противень с пергаментом выложить кучки сыра (~1 ст. л.), расплющить.</li>
+    <li>По желанию посыпать орегано.</li>
+    <li>Запекать при 180°C 6–8 мин до золотистого цвета.</li>
+    <li>Дать остыть на противне — станут хрустящими.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> 2 дня при комнатной температуре. <br>~110 ккал на порцию.</div>
+</div>
+</details>
+
+<details class="recipe" id="r-proteinovye-shariki">
+<summary>Протеиновые шарики <span class="tag tag-shared">Общее</span></summary>
+<div class="recipe-body">
+  <div class="recipe-meta"><span>⏱ 15 мин (без выпечки)</span><span>🍽 10 шт.</span></div>
+  <h4>Ингредиенты</h4>
+  <ul>
+    <li>Овсяные хлопья — 80 г</li>
+    <li>Ореховое масло (арахисовое) — 3 ст. л.</li>
+    <li>Протеиновый порошок (ванильный) — 1 скуп (30 г)</li>
+    <li>Мёд — 2 ст. л.</li>
+    <li>Какао-порошок — 1 ст. л. (по желанию)</li>
+    <li>Семена чиа — 1 ст. л.</li>
+  </ul>
+  <h4>Приготовление</h4>
+  <ol>
+    <li>Смешать все ингредиенты в миске.</li>
+    <li>Если слишком сухо — добавить ложку молока.</li>
+    <li>Скатать шарики (~10 штук).</li>
+    <li>Убрать в холодильник на 30 мин.</li>
+  </ol>
+  <div class="recipe-tip">💡 <strong>Хранение:</strong> неделя в холодильнике, можно заморозить. <br>~80 ккал на штуку.</div>
+</div>
+</details>
+
+</section>
+
+<!-- ======================= ЗАГОТОВКИ ======================= -->
+<section id="prep">
+<h2>Заготовки на выходные</h2>
+<div class="prep-card">
+<ul>
+  <li><strong>Суббота утром:</strong> Сварить суп из красной чечевицы с бёдрышками (на Сб обед + Вс обед)</li>
+  <li><strong>Суббота утром:</strong> Замариновать куриные бёдра в соевом соусе и мёде на воскресный ужин</li>
+  <li><strong>Суббота днём:</strong> Запечь нут для снэков (хватит на 3 вечера кино)</li>
+  <li><strong>Суббота днём:</strong> Испечь сырные чипсы из пармезана</li>
+  <li><strong>Суббота днём:</strong> Приготовить белковые меренги (долго в духовке, но минимум работы)</li>
+  <li><strong>Суббота вечером:</strong> Замесить и убрать чиа-пудинг в холодильник (на Сб перекус Ксюши)</li>
+  <li><strong>Воскресенье утром:</strong> Испечь творожные маффины (перекус на Вс для обоих)</li>
+  <li><strong>Воскресенье утром:</strong> Скатать протеиновые шарики (на неделю)</li>
+  <li><strong>Воскресенье днём:</strong> Отварить 2–3 яйца вкрутую на перекусы Саше</li>
+  <li><strong>Воскресенье днём:</strong> Порционно разложить орехи и сухофрукты на перекусы</li>
+</ul>
+</div>
+</section>
+
+<!-- ======================= ПОКУПКИ ======================= -->
+<section id="shopping">
+<h2>Список покупок</h2>
+
+<div class="shopping-header">
+  <div class="shopping-progress">
+    <span id="shopProgress">Куплено: 0 из 0</span>
+    <div class="bar"><div class="bar-fill" id="shopBar" style="width:0%"></div></div>
+  </div>
+  <div class="shopping-btns">
+    <button class="btn" onclick="resetAll()">Сбросить</button>
+    <button class="btn" onclick="checkAll()">Отметить всё</button>
+    <button class="btn btn-primary" onclick="copyList()">Скопировать</button>
+  </div>
+</div>
+
+<div id="shopList">
+
+<!-- Рыба и морепродукты -->
+<div class="shop-category">
+<div class="shop-category-header">Рыба и морепродукты</div>
+<div class="shop-item" data-item="losos"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=la%C5%A1i%C5%A1a" target="_blank">Лосось (филе)</a></span><span class="item-qty">300 г</span></div>
+<div class="shop-item" data-item="treska"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=menkė" target="_blank">Треска (филе)</a></span><span class="item-qty">300 г</span></div>
+<div class="shop-item" data-item="krevetki"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=krevetės" target="_blank">Креветки очищенные</a></span><span class="item-qty">500 г</span></div>
+<div class="shop-item" data-item="tunets"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=tunas+konservai" target="_blank">Тунец консервированный</a></span><span class="item-qty">1 банка</span></div>
+</div>
+
+<!-- Мясо (Саша) -->
+<div class="shop-category">
+<div class="shop-category-header">Мясо (для Саши)</div>
+<div class="shop-item" data-item="bedra"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=vi%C5%A1tienos+šlaunelės" target="_blank">Куриные бёдра (без кожи)</a></span><span class="item-qty">~1.5 кг</span></div>
+<div class="shop-item" data-item="farsh"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=vi%C5%A1tienos+faršas" target="_blank">Куриный фарш</a></span><span class="item-qty">1 кг</span></div>
+</div>
+
+<!-- Молочные продукты -->
+<div class="shop-category">
+<div class="shop-category-header">Молочные продукты</div>
+<div class="shop-item" data-item="tvorog2"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=varškė+2" target="_blank">Творог 2%</a></span><span class="item-qty">800 г</span></div>
+<div class="shop-item" data-item="tvorog0"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=varškė+0" target="_blank">Творог обезжиренный</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="tvorog5"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=varškė+5" target="_blank">Творог 5% (для Ксюши)</a></span><span class="item-qty">120 г</span></div>
+<div class="shop-item" data-item="yogurt"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=graikiškas+jogurtas" target="_blank">Греческий йогурт 2%</a></span><span class="item-qty">800 г</span></div>
+<div class="shop-item" data-item="kefir"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kefyras" target="_blank">Кефир 1%</a></span><span class="item-qty">500 мл</span></div>
+<div class="shop-item" data-item="kefir-k"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kefyras" target="_blank">Кефир (для Ксюши)</a></span><span class="item-qty">200 мл</span></div>
+<div class="shop-item" data-item="moloko"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pienas+1.5" target="_blank">Молоко 1.5%</a></span><span class="item-qty">300 мл</span></div>
+<div class="shop-item" data-item="slivki"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=grietinėlė+15" target="_blank">Сливки 15%</a></span><span class="item-qty">150 мл</span></div>
+<div class="shop-item" data-item="parmezan"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=parmezanas" target="_blank">Пармезан</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="feta"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=feta" target="_blank">Сыр фета</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="mocarella"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=mocarela" target="_blank">Моцарелла</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="halumi"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=halloumi" target="_blank">Халуми</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="rikotta"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=rikota" target="_blank">Рикотта</a></span><span class="item-qty">60 г</span></div>
+<div class="shop-item" data-item="syr-tverdyj"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=sūris+gauda" target="_blank">Сыр твёрдый (гауда/эмменталь)</a></span><span class="item-qty">30 г</span></div>
+<div class="shop-item" data-item="chedder"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=čederis" target="_blank">Сыр чеддер</a></span><span class="item-qty">50 г</span></div>
+<div class="shop-item" data-item="yajtsa"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kiaušiniai" target="_blank">Яйца</a></span><span class="item-qty">20 шт.</span></div>
+</div>
+
+<!-- Овощи -->
+<div class="shop-category">
+<div class="shop-category-header">Овощи</div>
+<div class="shop-item" data-item="batat"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=batatai" target="_blank">Батат</a></span><span class="item-qty">4 шт.</span></div>
+<div class="shop-item" data-item="brokkoli"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=brokoliai" target="_blank">Брокколи</a></span><span class="item-qty">700 г</span></div>
+<div class="shop-item" data-item="pomidory"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pomidorai" target="_blank">Помидоры</a></span><span class="item-qty">6 шт.</span></div>
+<div class="shop-item" data-item="cherri"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pomidorai+vyšniniai" target="_blank">Помидоры черри</a></span><span class="item-qty">350 г</span></div>
+<div class="shop-item" data-item="ogurtsy"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=agurkai" target="_blank">Огурцы</a></span><span class="item-qty">5 шт.</span></div>
+<div class="shop-item" data-item="perec"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=paprika" target="_blank">Перец болгарский</a></span><span class="item-qty">5 шт.</span></div>
+<div class="shop-item" data-item="kabachok"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=cukinija" target="_blank">Кабачок / цукини</a></span><span class="item-qty">3 шт.</span></div>
+<div class="shop-item" data-item="baklazhan"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=baklažanai" target="_blank">Баклажан</a></span><span class="item-qty">2 шт.</span></div>
+<div class="shop-item" data-item="morkov"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=morkos" target="_blank">Морковь</a></span><span class="item-qty">3 шт.</span></div>
+<div class="shop-item" data-item="luk"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=svogūnai" target="_blank">Лук репчатый</a></span><span class="item-qty">5 шт.</span></div>
+<div class="shop-item" data-item="luk-krasnyj"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=raudonieji+svogūnai" target="_blank">Лук красный</a></span><span class="item-qty">2 шт.</span></div>
+<div class="shop-item" data-item="chesnok"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=česnakai" target="_blank">Чеснок</a></span><span class="item-qty">2 головки</span></div>
+<div class="shop-item" data-item="shpinat"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=špinatai" target="_blank">Шпинат</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="salat"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=salotos" target="_blank">Листья салата / руккола</a></span><span class="item-qty">2 упак.</span></div>
+<div class="shop-item" data-item="avokado"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=avokadas" target="_blank">Авокадо</a></span><span class="item-qty">1 шт.</span></div>
+<div class="shop-item" data-item="tykva"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=moliūgas" target="_blank">Тыква</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="kartoshka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=bulvės" target="_blank">Картофель</a></span><span class="item-qty">1 шт.</span></div>
+<div class="shop-item" data-item="selderej"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=salierai" target="_blank">Сельдерей (стебли)</a></span><span class="item-qty">2 стебля</span></div>
+<div class="shop-item" data-item="shampinony"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pievagrybiai" target="_blank">Шампиньоны</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="imbir"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=imbieras" target="_blank">Имбирь свежий</a></span><span class="item-qty">1 корень</span></div>
+</div>
+
+<!-- Зелень -->
+<div class="shop-category">
+<div class="shop-category-header">Зелень</div>
+<div class="shop-item" data-item="petrushka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=petražolės" target="_blank">Петрушка</a></span><span class="item-qty">2 пучка</span></div>
+<div class="shop-item" data-item="kinza"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kalendra" target="_blank">Кинза</a></span><span class="item-qty">2 пучка</span></div>
+<div class="shop-item" data-item="bazilik"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=bazilikas" target="_blank">Базилик свежий</a></span><span class="item-qty">1 пучок</span></div>
+<div class="shop-item" data-item="timyan"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=čiobreliai" target="_blank">Тимьян</a></span><span class="item-qty">1 пучок</span></div>
+</div>
+
+<!-- Фрукты и ягоды -->
+<div class="shop-category">
+<div class="shop-category-header">Фрукты и ягоды</div>
+<div class="shop-item" data-item="banany"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=bananai" target="_blank">Бананы</a></span><span class="item-qty">6 шт.</span></div>
+<div class="shop-item" data-item="yagody"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=uogos+šaldytos" target="_blank">Ягоды замороженные (микс)</a></span><span class="item-qty">500 г</span></div>
+<div class="shop-item" data-item="yagody-svezh"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=mėlynės" target="_blank">Ягоды свежие (голубика/малина)</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="limon"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=citrina" target="_blank">Лимон</a></span><span class="item-qty">3 шт.</span></div>
+<div class="shop-item" data-item="lajm"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=žaliosios+citrinos" target="_blank">Лайм</a></span><span class="item-qty">2 шт.</span></div>
+<div class="shop-item" data-item="vinograd"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=vynuogės" target="_blank">Виноград</a></span><span class="item-qty">80 г</span></div>
+<div class="shop-item" data-item="kuraga"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=džiovintos+abrikosai" target="_blank">Курага</a></span><span class="item-qty">30 г</span></div>
+</div>
+
+<!-- Крупы и бобовые -->
+<div class="shop-category">
+<div class="shop-category-header">Крупы и бобовые</div>
+<div class="shop-item" data-item="ovsyanka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=avižiniai+dribsniai" target="_blank">Овсяные хлопья (долгой варки)</a></span><span class="item-qty">500 г</span></div>
+<div class="shop-item" data-item="bulgur"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=bulguras" target="_blank">Булгур</a></span><span class="item-qty">120 г</span></div>
+<div class="shop-item" data-item="kinoa"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=bolivinė+balandūnė" target="_blank">Киноа</a></span><span class="item-qty">250 г</span></div>
+<div class="shop-item" data-item="grechka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=grikiai" target="_blank">Гречка</a></span><span class="item-qty">120 г</span></div>
+<div class="shop-item" data-item="ris-buryj"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=rudieji+ryžiai" target="_blank">Рис бурый</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="ris-basmati"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=basmati+ryžiai" target="_blank">Рис басмати</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="ris-arborio"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=arborio+ryžiai" target="_blank">Рис арборио</a></span><span class="item-qty">150 г</span></div>
+<div class="shop-item" data-item="polba"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=speltos+kruopos" target="_blank">Полба (крупа)</a></span><span class="item-qty">60 г</span></div>
+<div class="shop-item" data-item="chechevitsa-zelyonaya"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=žalieji+lęšiai" target="_blank">Чечевица зелёная</a></span><span class="item-qty">150 г</span></div>
+<div class="shop-item" data-item="chechevitsa-krasnaya"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=raudonieji+lęšiai" target="_blank">Чечевица красная</a></span><span class="item-qty">300 г</span></div>
+<div class="shop-item" data-item="fasol-belaya"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=baltosios+pupelės" target="_blank">Фасоль белая (консервированная)</a></span><span class="item-qty">2 банки</span></div>
+<div class="shop-item" data-item="fasol-krasnaya"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=raudonosios+pupelės" target="_blank">Фасоль красная (консервированная)</a></span><span class="item-qty">2 банки</span></div>
+<div class="shop-item" data-item="nut"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=avinžirniai+konservuoti" target="_blank">Нут (консервированный)</a></span><span class="item-qty">2 банки</span></div>
+<div class="shop-item" data-item="pasta"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=makaronai+spagečiai" target="_blank">Паста (спагетти или пенне)</a></span><span class="item-qty">160 г</span></div>
+<div class="shop-item" data-item="pasta-melkaya"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=makaronai+maži" target="_blank">Паста мелкая (диталини)</a></span><span class="item-qty">50 г</span></div>
+<div class="shop-item" data-item="risovaya-lapsha"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=ryžių+makaronai" target="_blank">Рисовая лапша</a></span><span class="item-qty">150 г</span></div>
+</div>
+
+<!-- Хлеб -->
+<div class="shop-category">
+<div class="shop-category-header">Хлеб и выпечка</div>
+<div class="shop-item" data-item="hleb"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pilno+grūdo+duona" target="_blank">Хлеб цельнозерновой</a></span><span class="item-qty">1 буханка</span></div>
+<div class="shop-item" data-item="granola"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=granola" target="_blank">Гранола (низкосахарная)</a></span><span class="item-qty">150 г</span></div>
+</div>
+
+<!-- Орехи и семена -->
+<div class="shop-category">
+<div class="shop-category-header">Орехи и семена</div>
+<div class="shop-item" data-item="mindal"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=migdolai" target="_blank">Миндаль</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="gretskie"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=graikiniai+riešutai" target="_blank">Грецкие орехи</a></span><span class="item-qty">50 г</span></div>
+<div class="shop-item" data-item="keshyu"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=anakardžiai" target="_blank">Кешью</a></span><span class="item-qty">30 г</span></div>
+<div class="shop-item" data-item="semena-chia"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=chia+sėklos" target="_blank">Семена чиа</a></span><span class="item-qty">60 г</span></div>
+<div class="shop-item" data-item="semechki"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=moliūgų+sėklos" target="_blank">Тыквенные семечки</a></span><span class="item-qty">30 г</span></div>
+<div class="shop-item" data-item="kunzhut"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=sezamas" target="_blank">Кунжут</a></span><span class="item-qty">20 г</span></div>
+<div class="shop-item" data-item="kokos-struzhka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kokosų+drožlės" target="_blank">Кокосовая стружка</a></span><span class="item-qty">20 г</span></div>
+</div>
+
+<!-- Масла, соусы, приправы -->
+<div class="shop-category">
+<div class="shop-category-header">Масла и соусы</div>
+<div class="shop-item" data-item="olive-oil"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=alyvuogių+aliejus" target="_blank">Оливковое масло</a></span><span class="item-qty">1 бут.</span></div>
+<div class="shop-item" data-item="kunzhut-oil"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=sezamų+aliejus" target="_blank">Кунжутное масло</a></span><span class="item-qty">1 бут.</span></div>
+<div class="shop-item" data-item="oreh-maslo"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=žemės+riešutų+sviestas" target="_blank">Ореховое масло (арахисовое)</a></span><span class="item-qty">1 банка</span></div>
+<div class="shop-item" data-item="soevyj"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=sojų+padažas" target="_blank">Соевый соус</a></span><span class="item-qty">1 бут.</span></div>
+<div class="shop-item" data-item="tom-pasta"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pomidorų+pasta" target="_blank">Томатная паста</a></span><span class="item-qty">1 банка</span></div>
+<div class="shop-item" data-item="pomidory-konserv"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pomidorai+konservuoti" target="_blank">Помидоры в собственном соку</a></span><span class="item-qty">3 банки (400 г)</span></div>
+<div class="shop-item" data-item="balzamik"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=balzaminis+actas" target="_blank">Бальзамический уксус</a></span><span class="item-qty">1 бут.</span></div>
+<div class="shop-item" data-item="humus"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=humusas" target="_blank">Хумус</a></span><span class="item-qty">200 г</span></div>
+<div class="shop-item" data-item="karri-pasta"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=karis+pasta" target="_blank">Карри-паста или порошок карри</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="kokos-moloko"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kokosų+pienas" target="_blank">Кокосовое молоко</a></span><span class="item-qty">2 банки (500 мл)</span></div>
+<div class="shop-item" data-item="vino-beloe"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=baltas+vynas+sausas" target="_blank">Белое сухое вино (для ризотто)</a></span><span class="item-qty">1 бут. (опционально)</span></div>
+<div class="shop-item" data-item="ovoshch-bulon"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=daržovių+sultinys" target="_blank">Овощной бульон (куб./жидкий)</a></span><span class="item-qty">1.5 л</span></div>
+<div class="shop-item" data-item="myod"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=medus" target="_blank">Мёд</a></span><span class="item-qty">1 банка</span></div>
+</div>
+
+<!-- Специи -->
+<div class="shop-category">
+<div class="shop-category-header">Специи (проверить наличие)</div>
+<div class="shop-item" data-item="paprika"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=paprika+malta" target="_blank">Паприка</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="kurkuma"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=ciberžolė" target="_blank">Куркума</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="kumin"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kmynai" target="_blank">Кумин (зира)</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="korica"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=cinamonas" target="_blank">Корица</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="oregano"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=raudonėlis" target="_blank">Орегано</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="chili"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=čili+pipirai" target="_blank">Перец чили / хлопья чили</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="vanilin"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=vanilinas" target="_blank">Ванилин / ванильный экстракт</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="muskat"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=muskatinis+riešutas" target="_blank">Мускатный орех</a></span><span class="item-qty">1 упак.</span></div>
+</div>
+
+<!-- Прочее -->
+<div class="shop-category">
+<div class="shop-category-header">Прочее</div>
+<div class="shop-item" data-item="kakao"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kakava" target="_blank">Какао-порошок</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="protein"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=proteinas" target="_blank">Протеиновый порошок (ванильный)</a></span><span class="item-qty">1 скуп</span></div>
+<div class="shop-item" data-item="eritritol"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=eritritolis" target="_blank">Подсластитель (эритритол)</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="razryhlitel"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=kepimo+milteliai" target="_blank">Разрыхлитель</a></span><span class="item-qty">1 упак.</span></div>
+<div class="shop-item" data-item="ovsyanaya-muka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=avižiniai+miltai" target="_blank">Овсяная мука</a></span><span class="item-qty">100 г</span></div>
+<div class="shop-item" data-item="tselno-muka"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=pilno+grūdo+miltai" target="_blank">Мука цельнозерновая</a></span><span class="item-qty">50 г</span></div>
+<div class="shop-item" data-item="uksus"><input type="checkbox"><span class="item-name"><a href="https://barbora.lt/paieska?q=actas" target="_blank">Уксус (для яйца пашот)</a></span><span class="item-qty">1 бут.</span></div>
+</div>
+
+</div><!-- /shopList -->
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  Меню составлено для Саши и Ксюши · 23–29 марта 2026 · Покупки на barbora.lt
+</footer>
+
+<script>
+(function() {
+  // === DARK MODE ===
+  const toggle = document.getElementById('darkToggle');
+  const stored = localStorage.getItem('Menu_Mar05:darkMode');
+
+  function setDark(isDark) {
+    document.body.classList.toggle('dark', isDark);
+    document.body.classList.toggle('light', !isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('Menu_Mar05:darkMode', isDark ? '1' : '0');
+  }
+
+  if (stored === '1') setDark(true);
+  else if (stored === '0') setDark(false);
+  // else auto (no class)
+
+  toggle.addEventListener('click', function() {
+    const isDark = document.body.classList.contains('dark') ||
+      (!document.body.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    setDark(!isDark);
+  });
+
+  // === SHOPPING LIST ===
+  const PREFIX = 'Menu_Mar05:';
+  const items = document.querySelectorAll('.shop-item');
+  const progress = document.getElementById('shopProgress');
+  const bar = document.getElementById('shopBar');
+
+  function updateProgress() {
+    const total = items.length;
+    const checked = document.querySelectorAll('.shop-item.checked').length;
+    progress.textContent = 'Куплено: ' + checked + ' из ' + total;
+    bar.style.width = (total > 0 ? (checked / total * 100) : 0) + '%';
+  }
+
+  items.forEach(function(item) {
+    const key = PREFIX + item.getAttribute('data-item');
+    const cb = item.querySelector('input[type="checkbox"]');
+
+    // Restore
+    if (localStorage.getItem(key) === '1') {
+      cb.checked = true;
+      item.classList.add('checked');
+    }
+
+    // Toggle
+    item.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') return; // don't toggle when clicking link
+      e.preventDefault();
+      cb.checked = !cb.checked;
+      item.classList.toggle('checked', cb.checked);
+      localStorage.setItem(key, cb.checked ? '1' : '0');
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+
+  // Reset all
+  window.resetAll = function() {
+    items.forEach(function(item) {
+      const key = PREFIX + item.getAttribute('data-item');
+      const cb = item.querySelector('input[type="checkbox"]');
+      cb.checked = false;
+      item.classList.remove('checked');
+      localStorage.setItem(key, '0');
+    });
+    updateProgress();
+  };
+
+  // Check all
+  window.checkAll = function() {
+    items.forEach(function(item) {
+      const key = PREFIX + item.getAttribute('data-item');
+      const cb = item.querySelector('input[type="checkbox"]');
+      cb.checked = true;
+      item.classList.add('checked');
+      localStorage.setItem(key, '1');
+    });
+    updateProgress();
+  };
+
+  // Copy list
+  window.copyList = function() {
+    var text = 'Список покупок — 23–29 марта 2026\n\n';
+    var cats = document.querySelectorAll('.shop-category');
+    cats.forEach(function(cat) {
+      var header = cat.querySelector('.shop-category-header').textContent;
+      text += header + ':\n';
+      cat.querySelectorAll('.shop-item').forEach(function(item) {
+        var checked = item.classList.contains('checked') ? '✅' : '⬜';
+        var name = item.querySelector('.item-name a').textContent;
+        var qty = item.querySelector('.item-qty').textContent;
+        text += checked + ' ' + name + ' — ' + qty + '\n';
+      });
+      text += '\n';
+    });
+    navigator.clipboard.writeText(text).then(function() {
+      var btn = document.querySelector('.btn-primary');
+      var orig = btn.textContent;
+      btn.textContent = 'Скопировано!';
+      setTimeout(function() { btn.textContent = orig; }, 1500);
+    });
+  };
+
+  // === RECIPE DEEP LINKING ===
+  function getNavHeight() {
+    var nav = document.getElementById('mainNav');
+    return nav ? nav.offsetHeight : 52;
+  }
+
+  function openAndScroll(hash) {
+    if (!hash || !hash.startsWith('#r-')) return;
+    var el = document.querySelector(hash);
+    if (!el || el.tagName !== 'DETAILS') return;
+    el.open = true;
+    setTimeout(function() {
+      var top = el.getBoundingClientRect().top + window.pageYOffset - getNavHeight() - 8;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }, 80);
+  }
+
+  // Intercept recipe links
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#r-"]');
+    if (!a) return;
+    e.preventDefault();
+    var hash = a.getAttribute('href');
+    history.pushState(null, '', hash);
+    openAndScroll(hash);
+  });
+
+  // Handle browser back/forward
+  window.addEventListener('hashchange', function() {
+    openAndScroll(location.hash);
+  });
+
+  // Handle initial load with hash
+  if (location.hash && location.hash.startsWith('#r-')) {
+    setTimeout(function() { openAndScroll(location.hash); }, 200);
+  }
+
+  // Smooth scroll for nav links (non-recipe)
+  document.querySelectorAll('.nav-inner a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var href = a.getAttribute('href');
+      if (href.startsWith('#') && !href.startsWith('#r-')) {
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) {
+          var top = target.getBoundingClientRect().top + window.pageYOffset - getNavHeight() - 8;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          history.pushState(null, '', href);
+        }
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
