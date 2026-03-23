@@ -11,7 +11,7 @@ Expert nutritionist and practical meal-planning consultant (evidence-based, real
 
 ## Goal
 
-Create a healthy, balanced 7-day menu and a single mobile-friendly HTML file containing menus, recipes, PP desserts, PP snacks, and a shopping checklist with barbora.lt links for a couple.
+Create a healthy, balanced 7-day menu and a single mobile-friendly HTML file containing menus, recipes, and a shopping checklist with barbora.lt links. Desserts and snacks live in separate catalog pages (`desserts.html`, `snacks.html`).
 
 ---
 
@@ -20,55 +20,85 @@ Create a healthy, balanced 7-day menu and a single mobile-friendly HTML file con
 ### Саша (Alex) — 28M, 110 kg
 
 - **Goal**: gradual weight loss
-- **Diet**: omnivore, ПП (правильное питание / clean eating)
-- **Daily target**: **2100 kcal ±100** · **150 g protein ±10**
+- **Diet**: omnivore, ПП. **SIMPLICITY IS KING** — fewer recipes = easier to follow
+- **Daily targets**:
+
+| Ккал | Белок | Жиры | Углеводы |
+|------|-------|------|----------|
+| **2100 ±100** | **150г** | **60г** | **240г** |
+
 - **Health**: elevated LDL cholesterol
-  - Saturated fat <7% of calories
+  - Saturated fat <7% of calories (~<16g)
   - Whole eggs ≤1/day (extra whites OK)
   - Chicken thighs SKINLESS, minimal butter
-  - LDL helpers: oats, legumes, nuts, fish (omega-3), olive oil, soluble fiber
+  - LDL helpers: oats, legumes, fish (omega-3), olive oil, soluble fiber
 - **Satiety**: low glycemic index, high fiber, high protein, volume eating (vegetables)
 - **Taste**: food must be tasty and juicy, NOT bland "diet food"
-- **Protein preferences**: chicken thighs (skinless), chicken mince. Does NOT like chicken breast.
 
-#### Саша per-meal minimums (HARD CONSTRAINT)
+#### Саша food preferences
+- **Loves**: картошка, макароны, куриные бёдрышки (без кожи), куриный фарш
+- **Favorite combo**: бёдра с помидором и сыром лайт (15%) запечённые в духовке
+- **Does NOT like**: куриная грудка, орехи (не фанат)
+- **Snacks/desserts**: wants LOW CALORIE, TASTY options — see separate catalog pages
 
-| Meal | kcal min | Protein min |
-|------|----------|-------------|
-| Завтрак | 400 | 30 g |
-| Обед | 550 | 40 g |
-| Ужин | 550 | 40 g |
-| Перекус | 200 | 15 g |
+#### Саша meal simplicity rules (CRITICAL)
+- **Max 2-3 unique dinner recipes per week.** The rest are leftovers or repeats.
+- **Max 2-3 unique breakfasts** rotating through the week.
+- **One base dinner concept**: protein (бёдра or фарш or рыба) + гарнир (картоха/макароны/гречка/рис) + овощи. Vary the combo, not the technique.
+- **Cook-once-eat-twice**: every dinner produces enough for next-day lunch.
+- **Simplest possible cooking**: dump in oven, boil grains, chop salad. No fancy techniques.
+
+#### Саша per-meal targets
+
+| Meal | kcal | Б | Ж | У |
+|------|------|---|---|---|
+| Завтрак | 400-450 | 35г | 12г | 45г |
+| Обед | 550-600 | 45г | 18г | 65г |
+| Ужин | 550-600 | 45г | 18г | 65г |
+| Перекус(ы) | 250-350 | 20г | 10г | 40г |
 
 #### Саша portion anchors
-
-- Meat (chicken thighs, mince): **250 g raw** per serving
-- Fish: **200 g raw** per serving
-- Grains (bulgur, buckwheat, quinoa): **80–100 g dry** per serving
-- Vegetables: **200–300 g** per meal
-- Cottage cheese: **200–250 g** per serving
+- Chicken thighs (skinless): **250g raw** per meal
+- Chicken mince: **250g raw** per meal
+- Fish: **200g raw** per meal
+- Grains (buckwheat, rice, pasta): **80-100g dry** per meal
+- Potatoes: **300g raw** per meal
+- Vegetables: **200-300g** per meal
+- Cottage cheese: **200-250g** per serving
 
 ### Ксюша (Ksyusha) — 28F, 65 kg
 
-- **Diet**: pescetarian (fish, seafood, eggs, dairy — ZERO meat of any kind)
-- **Daily target**: **1750 kcal ±100** · **75 g protein ±10**
+- **Diet**: pescetarian (fish, seafood, eggs, dairy, tofu — **ZERO meat** of any kind)
+- **Daily targets**:
+
+| Ккал | Белок | Жиры | Углеводы |
+|------|-------|------|----------|
+| **1800 ±100** | **90г** | **58г** | **215г** |
+
 - **No health restrictions**
 
-#### Ксюша per-meal minimums (HARD CONSTRAINT)
+#### Ксюша food preferences
+- **Loves**: соба (soba noodles), фунчоза (glass noodles), тунец, лосось, креветки
+- **Proteins**: тофу (NOT халуми), рыба, яйца, творог, протеиновые йогурты/пудинги
+- **Use**: протеиновая гранола Graci High Power Protein (barbora.lt)
+- **Remove**: сыр+виноград as snack (replace with протеиновый йогурт/пудинг)
+- **Likes variety**: 5-6 unique dinners per week is fine
 
-| Meal | kcal min | Protein min |
-|------|----------|-------------|
-| Завтрак | 350 | 15 g |
-| Обед | 450 | 20 g |
-| Ужин | 450 | 20 g |
-| Перекус | 200 | 8 g |
+#### Ксюша per-meal targets
+
+| Meal | kcal | Б | Ж | У |
+|------|------|---|---|---|
+| Завтрак | 350-400 | 20г | 12г | 45г |
+| Обед | 450-500 | 25г | 16г | 55г |
+| Ужин | 450-550 | 25г | 16г | 55г |
+| Перекус(ы) | 250-350 | 15г | 10г | 35г |
 
 #### Ксюша portion anchors
-
-- Fish: **150–180 g raw** per serving
-- Grains: **60–80 g dry** per serving
-- Vegetables: **200–250 g** per meal
-- Cheese/cottage cheese: **100–150 g** per serving
+- Fish: **150-180g raw** per serving
+- Tofu: **150-200g** per serving
+- Grains (soba, rice, quinoa): **60-80g dry** per serving
+- Vegetables: **200-250g** per meal
+- Cheese/cottage cheese: **100-150g** per serving
 
 ### Shared Rules
 
@@ -84,229 +114,151 @@ Create a healthy, balanced 7-day menu and a single mobile-friendly HTML file con
 
 ---
 
-## Meal Planning Rules
+## Site Architecture
 
-### Cook-once-eat-twice (CRITICAL for reducing shopping list)
+```
+index.html           ← Landing page
+Menu_MmmWW.html      ← Weekly menu + recipes + shopping list (generated weekly)
+desserts.html        ← Big PP desserts catalog (permanent, grows over time)
+snacks.html          ← Big PP snacks catalog (permanent, grows over time)
+```
 
-- **≥3 dinners per person per week** must produce enough for next-day lunch (double batch)
-- This means only ~4 unique dinners per person + leftovers for 3 lunches = ~4 lunch recipes needed (not 7)
-- If a dinner doubles as next-day lunch, recipe must state: "Порции: 2 (ужин) + 2 (обед на завтра)"
-
-### Breakfast rotation (reduce recipe count)
-
-- Max **3–4 unique breakfast recipes per person** per week. Repeat favorites.
-- Shared breakfasts count toward the ≥2 shared meals target.
-
-### Ingredient reuse rule
-
-- **≥70% of ingredients must appear in ≥2 recipes** that week
-- Plan both menus around shared base vegetables, grains, and dairy
-- Example: if Саша uses broccoli for dinner, Ксюша's recipe that week should also use broccoli
-
-### Recipe count cap
-
-- **Max 25–30 recipe cards total** (Саша + Ксюша + shared + desserts + snacks)
-- Fewer unique recipes = fewer ingredients = smaller shopping list
+### Desserts & snacks = SEPARATE PAGES (not in weekly menu)
+- Weekly menu references them with a link: "Перекус: см. каталог десертов"
+- The snack row in the daily menu can suggest a specific item from the catalog but links to the catalog page
+- Catalogs show КБЖУ per 100g for every item
+- Catalogs have categories: домашние рецепты, готовые продукты (barbora.lt)
+- Priority: LOW CALORIE and TASTY
 
 ---
 
-## Mandatory Sections
+## Meal Planning Rules
 
-### PP Desserts (MUST HAVE — they love sweets)
+### Cook-once-eat-twice (CRITICAL)
+- Саша: EVERY dinner → next-day lunch (double batch). Only 2-3 unique dinners.
+- Ксюша: ≥3 dinners/week → next-day lunch.
 
-Include 2–3 PP dessert recipes per week. Ideas:
+### Ingredient reuse
+- ≥70% of ingredients in ≥2 recipes
+- Both people use same vegetables, eggs, grains where possible
 
-- Белковые меренги (egg white meringues)
-- Творожные маффины/булочки
-- Чиа-пудинг
-- Протеиновый мусс
-- Запечённые бананы с корицей и орехами
-- Овсяное печенье без сахара
-
-**КБЖУ requirement**: Every dessert/snack recipe MUST show macros per 100g:
-```
-На 100 г: 120 ккал · Б 15 г · Ж 2 г · У 10 г
-```
-Display as a prominent badge/row at the top of the recipe card.
-
-### PP Movie Snacks (MUST HAVE)
-
-Include 2–3 PP snack recipes for movie/couch nights. Ideas:
-
-- Запечённый нут (roasted chickpeas)
-- Сырные чипсы (cheese crisps from oven)
-- Эдамаме
-- Протеиновые шарики (protein balls)
-- Овощные чипсы (из кабачков, свёклы)
-- Попкорн с специями
-
-Same КБЖУ per 100g requirement as desserts.
+### Recipe count cap
+- Саша: **≤8 recipe cards** (2-3 dinners + 2-3 breakfasts + 1-2 perekus)
+- Ксюша: **≤12 recipe cards** (5-6 dinners + 3-4 breakfasts + 1-2 perekus)
+- Shared: **2-3 recipe cards**
+- **Total: ≤20-22 recipe cards** in weekly menu
 
 ---
 
 ## Variety Rule
 
-If previous `Menu_*.html` files exist in the working directory, read the most recent 1–3 and ensure ≥70% dinners and ≥50% breakfasts are different. Rotate proteins, cuisines, side dishes.
+If previous `Menu_*.html` files exist, read the most recent 1-3 and ensure ≥50% dinners are different. For Саша's simple rotation, change the гарнир or seasoning rather than the whole recipe.
 
 ## Shopping Rhythm
 
-One weekend trip to barbora.lt. Prefer ingredients that keep 5–7 days or freeze well. No midweek restocking needed.
+One weekend trip to barbora.lt. Prefer ingredients that keep 5-7 days or freeze well.
 
 ---
 
 ## Nutrition Constraints
 
 ### Plate Model
-
 ½ vegetables + fruit · ¼ whole grains · ¼ protein
 
 ### Daily Targets (per person)
-
 - Vegetables + fruit: ≥400 g/day
-- Fiber: ≥25 g (Ксюша) / ≥38 g (Саша)
+- Fiber: ≥25g (Ксюша) / ≥30g (Саша)
 - Free sugars: <10% of energy
 - Salt: <5 g/day
 
 ### Protein Sourcing
-
 - **Саша**: chicken thighs (skinless), chicken mince, fish, eggs (≤1 whole/day), legumes, low-fat dairy, cottage cheese
-- **Ксюша**: fish, seafood, eggs, cheese, cottage cheese, legumes, tofu, tempeh, Greek yogurt
+- **Ксюша**: fish, seafood, eggs, tofu, cheese, cottage cheese, legumes, Greek yogurt, протеиновые продукты
 - Fish ≥2 servings/week for both
 - Саша: red meat ≤2 servings/week, no processed meat
 
 ### Daily calorie enforcement (HARD CONSTRAINT)
-
-After planning all 7 days, SUM each day's meals. Every day MUST be within ±100 of target:
-- Саша: 2000–2200 kcal
-- Ксюша: 1650–1850 kcal
-
-If a day is under target, increase portion sizes or add a note: "+50г крупы к обеду" / "+100г овощей"
+Every day MUST be within ±100 of target. Show full КБЖУ summary per day:
+`2080 ккал · Б 148г · Ж 58г · У 235г`
 
 ---
 
 ## Language Rule
 
-Think/reason in English. Final HTML content must be in Russian.
+Think/reason in English. Final HTML content in Russian.
 
 ---
 
 ## Output File Name
 
-Create ONE HTML file. Name: `Menu_MmmWW.html`
-
-- `Mmm` = English month abbreviation (Mar, Apr, etc.)
-- `WW` = week number within month (01–05), weeks start Monday
-
-If filename exists, append `_v2`, `_v3`, etc.
+`Menu_MmmWW.html` — Mmm = English month, WW = week number (01-05, weeks start Monday).
+If exists, append `_v2`, `_v3`, etc.
 
 ---
 
 ## HTML Structure
 
 ### Design
-
 - Font: Inter (Google Fonts CDN)
-- Color palette: warm neutrals
-- Ксюша's recipes: Tiffany blue (`#81D8D0`)
-- Саша's recipes: warm terracotta/burnt orange (`#D4764E`)
-- Shared recipes: sage green (`#A8C5A0`)
-- Dark mode: auto-detect `prefers-color-scheme` + toggle button
-- Mobile-first, rounded cards (16px), subtle shadows
-- Smooth transitions on details open/close
-- Large tap targets (48px min)
+- Ксюша: Tiffany blue (`#81D8D0`)
+- Саша: terracotta (`#D4764E`)
+- Shared: sage green (`#A8C5A0`)
+- Dark mode: auto-detect + toggle
+- Mobile-first, rounded cards, subtle shadows, large tap targets
 
-### Navigation (sticky header)
-
-```
-Саша | Ксюша | Рецепты | Десерты | Снэки | Покупки
-```
-
-Must fit one line on iPhone SE (375px).
+### Navigation
+`Саша | Ксюша | Рецепты | Заготовки | Покупки`
+(Десерты and Снэки are now separate pages — add external links in nav)
 
 ### Section 1: Menu Саша (`#menu-sasha`)
-
-Day cards: Пн–Вс. Each day shows Завтрак / Обед / Ужин / Перекус.
-- Every dish name is a clickable link to its recipe card
-- Shared meals marked with 🟢
-- Show per-meal: `~ккал, Бг`
-- **Daily summary line**: `2080 ккал · Б 148 г · Ж 65 г · У 230 г` — full КБЖУ
+Day cards with per-meal kcal + protein. Daily КБЖУ summary.
+Перекус row: link to desserts/snacks catalog pages + suggest specific item.
 
 ### Section 2: Menu Ксюша (`#menu-ksyusha`)
-
-Same format. Pescetarian meals only. ZERO meat.
-Shared meals marked with 🟢 (same recipe card as Саша's).
-Same daily КБЖУ summary.
+Same format. ZERO meat. Daily КБЖУ summary.
 
 ### Section 3: Recipes (`#recipes`)
+Collapsible `<details>` cards. Anchor IDs. Color-tagged.
+Each card: Время / Порции / Ингредиенты / Шаги (1-6) / Хранение / Замены
 
-Collapsible `<details>` cards with anchor IDs (`id="r-slug"`).
-Each card: Время / Порции / Ингредиенты / Шаги (1–6) / Хранение / Замены.
-Color-tagged: terracotta for Саша / Tiffany for Ксюша / sage green for shared.
+### Section 4: Weekend Prep (`#prep`)
+Concrete batch-prep with quantities tied to specific days.
 
-### Section 4: PP Desserts (`#desserts`)
+### Section 5: Shopping List (`#shopping`)
 
-2–3 PP dessert recipe cards. Same collapsible format.
-**Each card must show КБЖУ per 100g** as a prominent badge at the top.
+#### 5a. Базовые продукты (всегда дома)
+Non-interactive: salt, pepper, olive oil, spices, soy sauce, honey, mustard, vinegar
 
-### Section 5: Movie Snacks (`#snacks`)
-
-2–3 PP snack recipe cards. Same collapsible format.
-**Each card must show КБЖУ per 100g** as a prominent badge at the top.
-
-### Section 6: Weekend Prep (`#prep`)
-
-**Concrete** batch-prep instructions tied to actual recipes:
-- Specific quantities: "Сварить 600 г булгура", "Запечь 1 кг куриных бёдрышек (без кожи)"
-- Tied to specific days: "Это пойдёт на обед Пн + ужин Вт"
-- 6–10 action items
-
-### Section 7: Shopping List (`#shopping`)
-
-**Two sub-sections:**
-
-#### 7a. Базовые продукты (всегда дома)
-Non-interactive reference list of pantry staples assumed to be in stock:
-- Salt, pepper, olive oil, common spices (paprika, cumin, turmeric, garlic powder, oregano)
-- Soy sauce, honey, mustard, vinegar
-- These are NOT in the checkbox list and NOT counted toward the 60-item cap
-
-#### 7b. Купить на этой неделе
-Interactive consolidated checklist:
-- **Max 60 items** (HARD CAP — if list exceeds this, simplify recipes)
-- Grouped by category (produce, dairy, protein, grains, other)
-- Each row: checkbox + item name (linked to barbora.lt search) + quantity
-- Link format: `https://barbora.lt/paieska?q=<product_name_in_Lithuanian>`
-- Entire row clickable toggles checkbox
-- Progress indicator: "Куплено: X/Y"
-- Buttons: "Сбросить", "Отметить всё", "Скопировать список"
-- localStorage persistence (prefix keys with file basename)
+#### 5b. Купить на этой неделе
+- **Max 50 items** (HARD CAP)
+- Grouped by category
+- Each item → barbora.lt search link: `https://barbora.lt/paieska?q=<Lithuanian_product_name>`
+- Checkboxes with localStorage
+- Progress: "Куплено: X/Y"
+- Buttons: Сбросить, Отметить всё, Скопировать
 
 ### JS Requirements
-
-- Shopping list: localStorage persistence, copy text, progress counter
-- Recipe deep-linking: clicking dish link opens `<details>` and scrolls to it (calculate offset dynamically using header's offsetHeight, NOT hardcoded pixels)
-- Dark mode toggle with localStorage persistence
-- Handle `hashchange` and initial page load with hash
+- Shopping localStorage + copy + progress
+- Recipe deep-linking (dynamic offset)
+- Dark mode toggle with localStorage
+- hashchange handling
 
 ---
 
 ## Validation Checklist
 
-Before finishing, verify:
-
-1. **Ксюша zero meat**: no chicken, beef, pork, turkey, lamb in any of her meals
-2. **Calorie check**: every day within ±100 of target (Саша 2100, Ксюша 1750)
-3. **Protein check**: Саша ≥140 g/day, Ксюша ≥65 g/day
-4. **Recipe links**: all menu links → existing recipe IDs; every recipe is referenced
-5. **Shopping list ≤60 items** (excluding pantry staples)
-6. **Shopping list completeness**: covers all recipe ingredients, no missing items
-7. **Recipe count ≤30** total cards
-8. **Weekday cooking ≤30 min** active per dish
-9. **≥2 shared meals** marked 🟢 in both menus
-10. **PP desserts**: 2–3 recipes with КБЖУ per 100g
-11. **PP snacks**: 2–3 recipes with КБЖУ per 100g
-12. **Barbora.lt links**: every shopping item links to barbora.lt search
-13. **Ingredient reuse**: ≥70% of ingredients in ≥2 recipes
+1. **Ксюша zero meat**: no chicken, beef, pork, turkey, lamb
+2. **Calorie check**: every day ±100 of target
+3. **Full КБЖУ check**: protein, fat, carbs within targets
+4. **Recipe links**: all menu links → existing recipe IDs
+5. **Shopping list ≤50 items**
+6. **Саша recipe count ≤8**
+7. **Total recipe cards ≤22**
+8. **Weekday cooking ≤30 min**
+9. **≥2 shared meals** marked 🟢
+10. **Barbora.lt links** on all shopping items
+11. **No nuts** in Саша's regular meals (OK in catalog snacks)
+12. **Ксюша uses тофу** (not халуми)
 
 ---
 

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1B1E" media="(prefers-color-scheme: dark)">
+<title>Каталог ПП-снэков</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --card: #FFFFFF;
+  --text: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --border: #E8E8E8;
+  --accent: #5BA4B5;
+  --accent-bg: #E8F4F8;
+  --accent-dark: #3D8A9C;
+  --crunchy: #7EC8E3;
+  --crunchy-bg: #EAF6FB;
+  --protein: #A8C5A0;
+  --protein-bg: #EEF5EC;
+  --veggie: #81D8D0;
+  --veggie-bg: #E8F8F6;
+  --ready: #C4A6E0;
+  --ready-bg: #F3EDF9;
+  --hover: rgba(0,0,0,0.03);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+}
+
+body.dark {
+  --bg: #1A1B1E;
+  --card: #2A2B2E;
+  --text: #E8E8E8;
+  --text-secondary: #9A9A9A;
+  --border: #3A3B3E;
+  --accent-bg: #1E2E32;
+  --crunchy-bg: #1E2E35;
+  --protein-bg: #253025;
+  --veggie-bg: #1E3230;
+  --ready-bg: #2A2535;
+  --hover: rgba(255,255,255,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --bg: #1A1B1E;
+    --card: #2A2B2E;
+    --text: #E8E8E8;
+    --text-secondary: #9A9A9A;
+    --border: #3A3B3E;
+    --accent-bg: #1E2E32;
+    --crunchy-bg: #1E2E35;
+    --protein-bg: #253025;
+    --veggie-bg: #1E3230;
+    --ready-bg: #2A2535;
+    --hover: rgba(255,255,255,0.04);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* --- HEADER --- */
+.header {
+  background: linear-gradient(135deg, #5BA4B5 0%, #81D8D0 50%, #A8C5A0 100%);
+  padding: 32px 20px 16px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.header p { font-size: 0.85rem; opacity: 0.9; font-weight: 400; }
+.dark-toggle {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.2); border: none;
+  border-radius: 50%; width: 36px; height: 36px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition);
+  backdrop-filter: blur(4px);
+}
+.dark-toggle:hover { background: rgba(255,255,255,0.35); }
+
+/* --- NAV --- */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border-color var(--transition);
+}
+.top-nav-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; flex-wrap: nowrap;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: 44px; align-items: center;
+  padding: 0 8px; gap: 2px;
+}
+.top-nav-inner::-webkit-scrollbar { display: none; }
+.top-nav-inner a {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.top-nav-inner a:hover { color: var(--text); background: var(--hover); }
+.top-nav-inner a.active {
+  color: var(--accent-dark);
+  background: var(--accent-bg);
+  font-weight: 600;
+}
+
+/* --- FILTER BAR --- */
+.filter-bar {
+  max-width: 900px; margin: 16px auto 0;
+  padding: 0 16px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.filter-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--text-secondary);
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+.filter-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* --- STATS BAR --- */
+.stats-bar {
+  max-width: 900px; margin: 16px auto 0; padding: 0 16px;
+}
+.stats-inner {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.stat-card {
+  flex: 1; min-width: 120px;
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 12px 16px;
+  text-align: center;
+  transition: background var(--transition);
+}
+.stat-number {
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 0.7rem; font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* --- MAIN --- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* --- CATEGORY HEADER --- */
+.category-section { margin-bottom: 32px; scroll-margin-top: 60px; }
+
+.category-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+.category-header h2 {
+  font-size: 1.15rem; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+}
+.category-icon {
+  font-size: 1.3rem;
+}
+.category-count {
+  font-size: 0.65rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 6px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  margin-left: auto;
+}
+.count-crunchy { background: var(--crunchy); color: #1A1B1E; }
+.count-protein { background: var(--protein); color: #1A1B1E; }
+.count-veggie { background: var(--veggie); color: #1A1B1E; }
+.count-ready { background: var(--ready); color: #1A1B1E; }
+
+/* --- SNACK GRID --- */
+.snack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .snack-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- SNACK CARDS --- */
+details.snack {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+details.snack[open] { box-shadow: var(--shadow-lg); }
+
+.cat-crunchy details.snack { border-left: 3px solid var(--crunchy); }
+.cat-protein details.snack { border-left: 3px solid var(--protein); }
+.cat-veggie details.snack { border-left: 3px solid var(--veggie); }
+.cat-ready details.snack { border-left: 3px solid var(--ready); }
+
+details.snack summary {
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: background var(--transition);
+  user-select: none;
+}
+details.snack summary::-webkit-details-marker { display: none; }
+
+.snack-summary-row {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%;
+}
+.snack-summary-row::before {
+  content: '\25B8'; font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+details.snack[open] .snack-summary-row::before { transform: rotate(90deg); }
+
+.snack-name {
+  font-weight: 600; font-size: 0.9rem;
+  flex: 1;
+}
+.snack-portion-mini {
+  font-size: 0.65rem; font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+details.snack summary:hover { background: var(--hover); }
+
+/* KBZHU badge */
+.kbzhu-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  width: fit-content;
+}
+.kbzhu-crunchy {
+  background: linear-gradient(135deg, #7EC8E3 0%, #5BA4B5 100%);
+  color: #fff;
+}
+.kbzhu-protein {
+  background: linear-gradient(135deg, #A8C5A0 0%, #7BA67A 100%);
+  color: #fff;
+}
+.kbzhu-veggie {
+  background: linear-gradient(135deg, #81D8D0 0%, #5BBFB5 100%);
+  color: #fff;
+}
+.kbzhu-ready {
+  background: linear-gradient(135deg, #C4A6E0 0%, #A07CC8 100%);
+  color: #fff;
+}
+
+.portion-info {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* --- RECIPE BODY --- */
+.snack-body {
+  padding: 0 16px 16px;
+  font-size: 0.82rem;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.snack-meta {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-secondary);
+}
+.snack-meta span { display: flex; align-items: center; gap: 4px; }
+
+.snack-body h4 {
+  font-size: 0.78rem; font-weight: 600;
+  margin: 12px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+.snack-body ul, .snack-body ol { padding-left: 20px; margin-bottom: 8px; }
+.snack-body li { margin-bottom: 3px; font-size: 0.82rem; }
+
+.snack-tip {
+  background: var(--hover);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.buy-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem; font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  margin-top: 10px;
+  transition: opacity var(--transition);
+}
+.buy-link:hover { opacity: 0.85; }
+
+/* hidden by filter */
+.snack-hidden { display: none !important; }
+
+/* --- FOOTER --- */
+footer {
+  text-align: center; padding: 24px 16px 40px;
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.25rem; }
+  .container { padding: 12px; }
+  .snack-grid { grid-template-columns: 1fr; }
+  .filter-bar { gap: 6px; }
+  .filter-btn { padding: 6px 12px; font-size: 0.72rem; }
+  .stat-card { min-width: 80px; padding: 10px 8px; }
+  .stat-number { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="dark-toggle" id="darkToggle" aria-label="Переключить тему">🌙</button>
+  <h1>Каталог ПП-снэков</h1>
+  <p>Низкокалорийные перекусы для кино и не только</p>
+</div>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html">Главная</a>
+    <a href="snacks.html" class="active">Снэки</a>
+    <a href="desserts.html">Десерты</a>
+    <a href="#cat-crunchy">Хрустящие</a>
+    <a href="#cat-protein">Протеиновые</a>
+    <a href="#cat-veggie">Овощные</a>
+    <a href="#cat-ready">Готовые</a>
+  </div>
+</nav>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">Все</button>
+  <button class="filter-btn" data-filter="low100">До 100 ккал</button>
+  <button class="filter-btn" data-filter="crunchy">Хрустящие</button>
+  <button class="filter-btn" data-filter="protein">Протеиновые</button>
+  <button class="filter-btn" data-filter="veggie">Овощные</button>
+  <button class="filter-btn" data-filter="ready">Готовые</button>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <div class="stat-number" id="statTotal">18</div>
+      <div class="stat-label">Рецептов</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="statVisible">18</div>
+      <div class="stat-label">Показано</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">45</div>
+      <div class="stat-label">Мин. ккал</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Категории</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ========================= ХРУСТЯЩИЕ СНЭКИ ========================= -->
+<section class="category-section cat-crunchy" id="cat-crunchy">
+<div class="category-header">
+  <h2><span class="category-icon">🍿</span> Хрустящие снэки</h2>
+  <span class="category-count count-crunchy">6 рецептов</span>
+</div>
+
+<div class="snack-grid">
+
+<!-- 1. Запечённый нут -->
+<details class="snack" data-cat="crunchy" data-kcal="180">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Запечённый нут со специями</span>
+      <span class="snack-portion-mini">180 ккал/порц</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 360 ккал · Б 19г · Ж 6г · У 52г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 40 мин</span>
+      <span>🍽 Порция ~50г = 180 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Нут консервированный — 1 банка (400г)</li>
+      <li>Паприка копчёная — 1 ч.л.</li>
+      <li>Чеснок сушёный — 1/2 ч.л.</li>
+      <li>Оливковое масло — 1 ч.л.</li>
+      <li>Соль, перец — по вкусу</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Слить воду, промыть нут, обсушить полотенцем</li>
+      <li>Смешать со специями и маслом</li>
+      <li>Выложить на пергамент в один слой</li>
+      <li>Запекать при 200°C 25-30 мин, перемешивая раз</li>
+      <li>Остудить — станет ещё хрустящее</li>
+    </ol>
+    <div class="snack-tip">Хранить в открытой ёмкости до 3 дней. Можно варьировать специи: карри, куркума, кайенский перец.</div>
+  </div>
+</details>
+
+<!-- 2. Сырные чипсы из пармезана -->
+<details class="snack" data-cat="crunchy" data-kcal="130">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Сырные чипсы из пармезана</span>
+      <span class="snack-portion-mini">130 ккал/порц</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 430 ккал · Б 38г · Ж 30г · У 0г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 15 мин</span>
+      <span>🍽 Порция ~30г = 130 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Пармезан — 100г</li>
+      <li>Итальянские травы — по желанию</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Натереть пармезан на мелкой тёрке</li>
+      <li>Выложить кучками на пергамент (по 1 ст.л.)</li>
+      <li>Запекать при 180°C 7-8 мин до золотистого</li>
+      <li>Остудить на бумаге — затвердеют</li>
+    </ol>
+    <div class="snack-tip">Нулевые углеводы! Добавьте розмарин или чёрный перец для вариации. Отлично к вину.</div>
+  </div>
+</details>
+
+<!-- 3. Овощные чипсы из кабачков -->
+<details class="snack" data-cat="crunchy" data-kcal="60">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Овощные чипсы из кабачков</span>
+      <span class="snack-portion-mini">60 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 60 ккал · Б 2г · Ж 1г · У 10г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 30 мин</span>
+      <span>🍽 Порция 100г = 60 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Кабачок — 1 крупный</li>
+      <li>Специи (паприка, чеснок) — по вкусу</li>
+      <li>Соль — щепотка</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Нарезать кабачок тонкими кружками (мандолина)</li>
+      <li>Промокнуть от влаги бумажным полотенцем</li>
+      <li>Разложить на пергаменте, посыпать специями</li>
+      <li>Запекать при 180°C 20-25 мин до хруста</li>
+    </ol>
+    <div class="snack-tip">Ультранизкокалорийный снэк! Чем тоньше нарежете, тем хрустящее получится.</div>
+  </div>
+</details>
+
+<!-- 4. Чипсы из свёклы -->
+<details class="snack" data-cat="crunchy" data-kcal="70">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Чипсы из свёклы</span>
+      <span class="snack-portion-mini">70 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 70 ккал · Б 2г · Ж 0г · У 15г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 40 мин</span>
+      <span>🍽 Порция 100г = 70 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Свёкла сырая — 2 шт (средние)</li>
+      <li>Морская соль — щепотка</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Очистить и нарезать тонкими слайсами</li>
+      <li>Разложить на пергаменте в один слой</li>
+      <li>Посолить слегка</li>
+      <li>Запекать при 160°C 30-35 мин, следить чтоб не сгорели</li>
+    </ol>
+    <div class="snack-tip">Красивый ярко-бордовый цвет! Ноль жира. Храните в бумажном пакете.</div>
+  </div>
+</details>
+
+<!-- 5. Попкорн со специями -->
+<details class="snack" data-cat="crunchy" data-kcal="94">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Попкорн со специями</span>
+      <span class="snack-portion-mini">94 ккал/порц</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 375 ккал · Б 12г · Ж 4г · У 74г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 10 мин</span>
+      <span>🍽 Порция ~25г = 94 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Кукурузные зёрна для попкорна — 50г</li>
+      <li>Паприка / куркума — по 1/2 ч.л.</li>
+      <li>Соль — щепотка</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Нагреть сковороду с крышкой на среднем огне</li>
+      <li>Высыпать зёрна (без масла!), закрыть крышкой</li>
+      <li>Когда начнёт стрелять — потряхивать сковороду</li>
+      <li>Когда хлопки стихнут — снять и посыпать специями</li>
+    </ol>
+    <div class="snack-tip">Классический кино-снэк без вины! Без масла попкорн — один из самых низкокалорийных хрустящих снэков.</div>
+  </div>
+</details>
+
+<!-- 6. Рисовые хлебцы с творогом -->
+<details class="snack" data-cat="crunchy" data-kcal="120">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Рисовые хлебцы с творогом</span>
+      <span class="snack-portion-mini">120 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-crunchy">На 100г: 120 ккал · Б 8г · Ж 2г · У 18г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 3 мин</span>
+      <span>🍽 Без готовки</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Рисовые хлебцы — 2 шт</li>
+      <li>Творог мягкий 2% — 50г</li>
+      <li>Помидор — пара кружков</li>
+      <li>Соль, перец, зелень — по вкусу</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Намазать хлебцы творогом</li>
+      <li>Положить сверху кружки помидора</li>
+      <li>Посыпать зеленью, посолить</li>
+    </ol>
+    <div class="snack-tip">Самый быстрый снэк! Варианты: огурец + укроп, авокадо + лимон, паприка + базилик.</div>
+  </div>
+</details>
+
+</div><!-- /snack-grid -->
+</section>
+
+<!-- ========================= ПРОТЕИНОВЫЕ СНЭКИ ========================= -->
+<section class="category-section cat-protein" id="cat-protein">
+<div class="category-header">
+  <h2><span class="category-icon">💪</span> Протеиновые снэки</h2>
+  <span class="category-count count-protein">5 рецептов</span>
+</div>
+
+<div class="snack-grid">
+
+<!-- 7. Протеиновые шарики -->
+<details class="snack" data-cat="protein" data-kcal="78">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Протеиновые шарики</span>
+      <span class="snack-portion-mini">78 ккал/шт</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-protein">На 100г: 310 ккал · Б 12г · Ж 16г · У 30г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 15 мин + холод</span>
+      <span>🍽 1 шарик ~25г = 78 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Овсяные хлопья — 100г</li>
+      <li>Ореховая паста (арахис/кешью) — 60г</li>
+      <li>Какао-порошок — 2 ст.л.</li>
+      <li>Мёд — 2 ст.л.</li>
+      <li>Семена чиа — 1 ст.л. (опционально)</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Смешать все ингредиенты в миске</li>
+      <li>Скатать шарики размером с грецкий орех</li>
+      <li>Обвалять в какао или кокосовой стружке</li>
+      <li>Убрать в холодильник на 30 мин</li>
+    </ol>
+    <div class="snack-tip">Готовьте сразу на неделю! Хранятся в холодильнике до 7 дней. Отлично заменяют конфеты.</div>
+  </div>
+</details>
+
+<!-- 8. Варёные яйца с хумусом -->
+<details class="snack" data-cat="protein" data-kcal="155">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Варёные яйца с хумусом</span>
+      <span class="snack-portion-mini">~200 ккал/порц</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-protein">На 100г: 155 ккал · Б 11г · Ж 10г · У 4г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 12 мин</span>
+      <span>🍽 2 яйца + 30г хумуса = ~200 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Яйца — 2 шт</li>
+      <li>Хумус — 30г</li>
+      <li>Паприка копчёная — щепотка</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Сварить яйца вкрутую (10 мин)</li>
+      <li>Остудить, разрезать пополам</li>
+      <li>Подавать с хумусом и паприкой</li>
+    </ol>
+    <div class="snack-tip">Яйца можно сварить заранее на неделю. Хумус также хорош с овощными палочками.</div>
+  </div>
+</details>
+
+<!-- 9. Тунец на рисовых хлебцах -->
+<details class="snack" data-cat="protein" data-kcal="110">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Тунец на рисовых хлебцах</span>
+      <span class="snack-portion-mini">110 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-protein">На 100г: 110 ккал · Б 15г · Ж 1г · У 10г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 5 мин</span>
+      <span>🍽 Без готовки</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Тунец консервированный в собственном соку — 1/2 банки</li>
+      <li>Рисовые хлебцы — 2 шт</li>
+      <li>Огурец — 1/2 шт</li>
+      <li>Лимонный сок — немного</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Слить жидкость из тунца, размять вилкой</li>
+      <li>Добавить сок лимона, перемешать</li>
+      <li>Выложить на хлебцы, украсить огурцом</li>
+    </ol>
+    <div class="snack-tip">Высокобелковый снэк без готовки. Берите тунец в собственном соку — не в масле!</div>
+  </div>
+</details>
+
+<!-- 10. Творог с огурцом и зеленью -->
+<details class="snack" data-cat="protein" data-kcal="75">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Творог с огурцом и зеленью</span>
+      <span class="snack-portion-mini">75 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-protein">На 100г: 75 ккал · Б 10г · Ж 2г · У 4г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 5 мин</span>
+      <span>🍽 Порция 150г = 112 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Творог 2% — 150г</li>
+      <li>Огурец — 1 шт (мелко)</li>
+      <li>Укроп — горсть</li>
+      <li>Соль, перец — по вкусу</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Мелко нарезать огурец и укроп</li>
+      <li>Смешать с творогом</li>
+      <li>Посолить, поперчить</li>
+    </ol>
+    <div class="snack-tip">Можно есть ложкой или намазать на хлебцы. Вариация: добавьте чеснок и лимонный сок.</div>
+  </div>
+</details>
+
+<!-- 11. Эдамаме с морской солью -->
+<details class="snack" data-cat="protein" data-kcal="120">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Эдамаме с морской солью</span>
+      <span class="snack-portion-mini">120 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-protein">На 100г: 120 ккал · Б 12г · Ж 5г · У 8г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 7 мин</span>
+      <span>🍽 Порция 100г = 120 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Эдамаме замороженные — 200г</li>
+      <li>Морская соль — по вкусу</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Отварить в подсоленной воде 5 мин</li>
+      <li>Слить воду, обсушить</li>
+      <li>Посыпать крупной морской солью</li>
+    </ol>
+    <div class="snack-tip">Идеальный снэк для кино! Есть руками, выдавливая бобы из стручка. Высокий белок, низкие калории.</div>
+  </div>
+</details>
+
+</div><!-- /snack-grid -->
+</section>
+
+<!-- ========================= ОВОЩНЫЕ ПЕРЕКУСЫ ========================= -->
+<section class="category-section cat-veggie" id="cat-veggie">
+<div class="category-header">
+  <h2><span class="category-icon">🥒</span> Овощные перекусы</h2>
+  <span class="category-count count-veggie">3 рецепта</span>
+</div>
+
+<div class="snack-grid">
+
+<!-- 12. Морковные палочки + хумус -->
+<details class="snack" data-cat="veggie" data-kcal="80">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Морковные палочки + хумус</span>
+      <span class="snack-portion-mini">80 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-veggie">На 100г (микс): 80 ккал · Б 3г · Ж 3г · У 10г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 3 мин</span>
+      <span>🍽 Без готовки</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Морковь — 2 шт (крупные)</li>
+      <li>Хумус — 50г</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Нарезать морковь палочками</li>
+      <li>Выложить хумус в пиалу</li>
+      <li>Макать и наслаждаться</li>
+    </ol>
+    <div class="snack-tip">Классика ПП-снэков! Можно также использовать палочки болгарского перца, сельдерея, огурца.</div>
+  </div>
+</details>
+
+<!-- 13. Огурцы с творожным соусом -->
+<details class="snack" data-cat="veggie" data-kcal="45">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Огурцы с творожным соусом</span>
+      <span class="snack-portion-mini">45 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-veggie">На 100г: 45 ккал · Б 5г · Ж 1г · У 4г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 5 мин</span>
+      <span>🍽 Порция 150г = 68 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Огурцы — 2 шт</li>
+      <li>Творог мягкий 2% — 100г</li>
+      <li>Чеснок — 1 зубчик</li>
+      <li>Укроп — горсть</li>
+      <li>Соль — щепотка</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Смешать творог с давленым чесноком и зеленью</li>
+      <li>Нарезать огурцы кружками или палочками</li>
+      <li>Подавать соус в пиале с огурцами</li>
+    </ol>
+    <div class="snack-tip">Самый низкокалорийный снэк в каталоге — всего 45 ккал на 100г! Идеален для позднего перекуса.</div>
+  </div>
+</details>
+
+<!-- 14. Печёные перцы с фетой -->
+<details class="snack" data-cat="veggie" data-kcal="70">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Печёные перцы с фетой</span>
+      <span class="snack-portion-mini">70 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-veggie">На 100г: 70 ккал · Б 4г · Ж 4г · У 5г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 20 мин</span>
+      <span>🍽 Порция 150г = 105 ккал</span>
+    </div>
+    <h4>Ингредиенты</h4>
+    <ul>
+      <li>Перец болгарский (мини или обычный) — 3-4 шт</li>
+      <li>Фета / брынза — 50г</li>
+      <li>Базилик свежий — горсть</li>
+      <li>Оливковое масло — 1/2 ч.л.</li>
+    </ul>
+    <h4>Приготовление</h4>
+    <ol>
+      <li>Разрезать перцы пополам, удалить семена</li>
+      <li>Наполнить каждую половинку кусочком феты</li>
+      <li>Запекать при 190°C 15 мин</li>
+      <li>Украсить базиликом</li>
+    </ol>
+    <div class="snack-tip">Красивая подача! Можно добавить каплю бальзамического крема сверху для ресторанного вида.</div>
+  </div>
+</details>
+
+</div><!-- /snack-grid -->
+</section>
+
+<!-- ========================= ГОТОВЫЕ ПРОДУКТЫ ========================= -->
+<section class="category-section cat-ready" id="cat-ready">
+<div class="category-header">
+  <h2><span class="category-icon">🛒</span> Готовые продукты</h2>
+  <span class="category-count count-ready">4 продукта</span>
+</div>
+
+<div class="snack-grid">
+
+<!-- 15. Чечевичные чипсы -->
+<details class="snack" data-cat="ready" data-kcal="126">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Чечевичные чипсы</span>
+      <span class="snack-portion-mini">126 ккал/порц</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-ready">На 100г: ~420 ккал · Б 20г · Ж 15г · У 50г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>🍽 Порция ~30г = 126 ккал</span>
+      <span>🏪 Готовый продукт</span>
+    </div>
+    <p>Хрустящие снэки из чечевичной муки. Высокое содержание белка по сравнению с обычными чипсами. Порция в 30г — отличная альтернатива для кино.</p>
+    <a href="https://barbora.lt/paieska?q=l%C4%99%C5%A1i%C5%B3+tra%C5%A1ku%C4%8Diai" target="_blank" rel="noopener" class="buy-link">🛒 Найти на barbora.lt</a>
+  </div>
+</details>
+
+<!-- 16. Рисовые хлебцы -->
+<details class="snack" data-cat="ready" data-kcal="30">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Рисовые хлебцы</span>
+      <span class="snack-portion-mini">30 ккал/шт</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-ready">На 100г: ~380 ккал · Б 8г · Ж 2г · У 80г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>🍽 1 хлебец ~8г = 30 ккал</span>
+      <span>🏪 Готовый продукт</span>
+    </div>
+    <p>Универсальная база для любого снэка. Один хлебец — всего 30 ккал. Намазывайте творогом, хумусом, авокадо или ешьте просто так.</p>
+    <a href="https://barbora.lt/paieska?q=ry%C5%BEi%C5%B3+trapu%C4%8Diai" target="_blank" rel="noopener" class="buy-link">🛒 Найти на barbora.lt</a>
+  </div>
+</details>
+
+<!-- 17. Протеиновые батончики -->
+<details class="snack" data-cat="ready" data-kcal="175">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Протеиновые батончики</span>
+      <span class="snack-portion-mini">~175 ккал/шт</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-ready">На 100г: ~350 ккал · Б 30г · Ж 10г · У 35г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>🍽 1 батончик ~50г = 175 ккал</span>
+      <span>🏪 Готовый продукт</span>
+    </div>
+    <p>Удобный перекус с высоким содержанием белка. Ищите варианты с минимальным сахаром (до 5г) и без пальмового масла. Хороши как замена сладкого.</p>
+    <a href="https://barbora.lt/paieska?q=protein+baton%C4%97lis" target="_blank" rel="noopener" class="buy-link">🛒 Найти на barbora.lt</a>
+  </div>
+</details>
+
+<!-- 18. Эдамаме замороженные -->
+<details class="snack" data-cat="ready" data-kcal="120">
+  <summary>
+    <div class="snack-summary-row">
+      <span class="snack-name">Эдамаме замороженные</span>
+      <span class="snack-portion-mini">120 ккал/100г</span>
+    </div>
+    <div class="kbzhu-badge kbzhu-ready">На 100г: 120 ккал · Б 12г · Ж 5г · У 8г</div>
+  </summary>
+  <div class="snack-body">
+    <div class="snack-meta">
+      <span>⏱ 5 мин (отварить)</span>
+      <span>🏪 Заморозка</span>
+    </div>
+    <p>Замороженные соевые бобы — просто отварить 5 минут, посолить и готово. Идеальный белковый снэк для кино с минимальной готовкой.</p>
+    <a href="https://barbora.lt/paieska?q=edamam%C4%97" target="_blank" rel="noopener" class="buy-link">🛒 Найти на barbora.lt</a>
+  </div>
+</details>
+
+</div><!-- /snack-grid -->
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  Каталог ПП-снэков · Данные о калорийности приблизительные
+</footer>
+
+<script>
+(function() {
+  // === DARK MODE ===
+  var DARK_KEY = 'snacks_dark';
+  var toggle = document.getElementById('darkToggle');
+  var saved = localStorage.getItem(DARK_KEY);
+
+  if (saved === 'dark') { document.body.classList.add('dark'); toggle.textContent = '\u2600\uFE0F'; }
+  else if (saved === 'light') { document.body.classList.add('light'); toggle.textContent = '\uD83C\uDF19'; }
+
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+      localStorage.setItem(DARK_KEY, 'light');
+      toggle.textContent = '\uD83C\uDF19';
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+      localStorage.setItem(DARK_KEY, 'dark');
+      toggle.textContent = '\u2600\uFE0F';
+    }
+  });
+
+  // === FILTER SYSTEM ===
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var snacks = document.querySelectorAll('details.snack');
+  var statVisible = document.getElementById('statVisible');
+
+  function applyFilter(filter) {
+    var visibleCount = 0;
+
+    snacks.forEach(function(card) {
+      var cat = card.getAttribute('data-cat');
+      var kcal = parseInt(card.getAttribute('data-kcal'), 10);
+      var show = false;
+
+      if (filter === 'all') {
+        show = true;
+      } else if (filter === 'low100') {
+        show = kcal <= 100;
+      } else {
+        show = cat === filter;
+      }
+
+      if (show) {
+        card.classList.remove('snack-hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('snack-hidden');
+      }
+    });
+
+    // Also show/hide category sections if all their cards are hidden
+    document.querySelectorAll('.category-section').forEach(function(section) {
+      var visibleCards = section.querySelectorAll('details.snack:not(.snack-hidden)');
+      section.style.display = visibleCards.length === 0 ? 'none' : '';
+    });
+
+    statVisible.textContent = visibleCount;
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+
+  // === SMOOTH SCROLL for nav links ===
+  document.querySelectorAll('.top-nav-inner a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

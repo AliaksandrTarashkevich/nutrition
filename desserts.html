@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1B1E" media="(prefers-color-scheme: dark)">
+<title>Каталог ПП-десертов</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --card: #FFFFFF;
+  --text: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --border: #E8E8E8;
+  --accent: #E8A87C;
+  --accent-soft: #FFF0E6;
+  --accent-pink: #F2A6A6;
+  --sasha: #D4764E;
+  --ksyusha: #81D8D0;
+  --shared: #A8C5A0;
+  --dessert-bg: #FFF8F0;
+  --hover: rgba(0,0,0,0.03);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+}
+
+body.dark {
+  --bg: #1A1B1E;
+  --card: #2A2B2E;
+  --text: #E8E8E8;
+  --text-secondary: #9A9A9A;
+  --border: #3A3B3E;
+  --accent-soft: #3A2A20;
+  --dessert-bg: #2E2820;
+  --hover: rgba(255,255,255,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --bg: #1A1B1E;
+    --card: #2A2B2E;
+    --text: #E8E8E8;
+    --text-secondary: #9A9A9A;
+    --border: #3A3B3E;
+    --accent-soft: #3A2A20;
+    --dessert-bg: #2E2820;
+    --hover: rgba(255,255,255,0.04);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* --- HEADER --- */
+.header {
+  background: linear-gradient(135deg, #E8A87C 0%, #F2A6A6 50%, #D4A5C9 100%);
+  padding: 32px 20px 16px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.header p { font-size: 0.85rem; opacity: 0.95; font-weight: 400; }
+.dark-toggle {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.2); border: none;
+  border-radius: 50%; width: 36px; height: 36px;
+  font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition);
+  backdrop-filter: blur(4px);
+}
+.dark-toggle:hover { background: rgba(255,255,255,0.35); }
+
+/* --- NAV --- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border-color var(--transition);
+}
+.nav-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; flex-wrap: nowrap;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: 44px; align-items: center;
+  padding: 0 8px; gap: 2px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-inner a:hover { color: var(--text); background: var(--hover); }
+.nav-inner a.active { color: var(--accent); font-weight: 600; }
+
+/* --- MAIN --- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* --- FILTER BAR --- */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 20px;
+  padding: 4px 0;
+}
+.filter-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--text-secondary);
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+.filter-btn:hover { background: var(--hover); border-color: var(--accent); color: var(--text); }
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* --- COUNT BADGE --- */
+.count-badge {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.count-badge span { font-weight: 700; color: var(--accent); }
+
+/* --- CATEGORY SECTIONS --- */
+.category-section { margin-bottom: 28px; scroll-margin-top: 60px; }
+
+.category-header {
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 14px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.category-header .cat-icon { font-size: 1.3rem; }
+.category-header .cat-count {
+  font-size: 0.65rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 6px;
+  background: var(--accent); color: #fff;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  margin-left: auto;
+}
+
+/* --- RECIPE GRID --- */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .recipe-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- RECIPE CARDS --- */
+details.recipe {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: background var(--transition), box-shadow var(--transition);
+  border-left: 3px solid var(--accent);
+}
+details.recipe[open] { box-shadow: var(--shadow-lg); }
+details.recipe summary {
+  padding: 14px 16px;
+  font-weight: 600; font-size: 0.88rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: background var(--transition);
+  user-select: none;
+}
+details.recipe summary::-webkit-details-marker { display: none; }
+details.recipe summary .summary-top {
+  display: flex; align-items: center; gap: 8px;
+}
+details.recipe summary .summary-top::before {
+  content: '\25B8'; font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+details.recipe[open] summary .summary-top::before { transform: rotate(90deg); }
+details.recipe summary:hover { background: var(--hover); }
+details.recipe summary .recipe-name { flex: 1; }
+
+/* --- KBZHU BADGE --- */
+.kbzhu-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #E8A87C 0%, #F2A6A6 100%);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.kbzhu-badge .kcal-val { font-weight: 700; }
+.kbzhu-note {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* --- RECIPE BODY --- */
+.recipe-body {
+  padding: 0 16px 16px;
+  font-size: 0.82rem;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.recipe-meta {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-secondary);
+}
+.recipe-meta span { display: flex; align-items: center; gap: 4px; }
+.recipe-body h4 {
+  font-size: 0.78rem; font-weight: 600;
+  margin: 12px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+.recipe-body ul, .recipe-body ol { padding-left: 20px; margin-bottom: 8px; }
+.recipe-body li { margin-bottom: 3px; font-size: 0.82rem; }
+.recipe-tip {
+  background: var(--hover);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* --- PRODUCT CARD (barbora) --- */
+.product-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem; font-weight: 600;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  margin-top: 8px;
+  transition: all var(--transition);
+  border: 1px solid var(--accent);
+}
+.product-link:hover { background: var(--accent); color: #fff; }
+
+/* --- FOOTER --- */
+footer {
+  text-align: center; padding: 24px 16px 40px;
+  font-size: 0.75rem; color: var(--text-secondary);
+}
+
+/* --- HIDDEN --- */
+.dessert-card.hidden {
+  display: none !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.25rem; }
+  .container { padding: 12px; }
+  .recipe-grid { grid-template-columns: 1fr; }
+  .filter-btn { font-size: 0.72rem; padding: 6px 12px; }
+  .nav-inner a { font-size: 0.72rem; padding: 8px 8px; }
+  .kbzhu-badge { font-size: 0.62rem; padding: 3px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="dark-toggle" id="darkToggle" aria-label="Переключить тему">🌙</button>
+  <h1>🍰 Каталог ПП-десертов</h1>
+  <p>Низкокалорийные десерты для Саши и Ксюши</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">🏠 Главная</a>
+    <a href="desserts.html" class="active">🍰 Десерты</a>
+    <a href="snacks.html">🍿 Снеки</a>
+    <a href="#cat-tvorog">Творожные</a>
+    <a href="#cat-protein">Белковые</a>
+    <a href="#cat-fruit">Фруктовые</a>
+    <a href="#cat-oat">Овсяные</a>
+    <a href="#cat-chia">Чиа</a>
+    <a href="#cat-shop">Магазин</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="cal-100">До 100 ккал</button>
+    <button class="filter-btn" data-filter="cal-150">До 150 ккал</button>
+    <button class="filter-btn" data-filter="творожные">Творожные</button>
+    <button class="filter-btn" data-filter="белковые">Белковые</button>
+    <button class="filter-btn" data-filter="готовые">Готовые</button>
+  </div>
+
+  <!-- COUNT -->
+  <div class="count-badge" id="countBadge">Показано: <span id="visibleCount">18</span> из 18 десертов</div>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 1: ТВОРОЖНЫЕ ДЕСЕРТЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-tvorog">
+    <div class="category-header">
+      <span class="cat-icon">🧀</span> Творожные десерты
+      <span class="cat-count">4 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 1. Творожные маффины -->
+      <div class="dessert-card" data-cal="130" data-category="творожные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творожные маффины</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">130 ккал</span> · Б 14г · Ж 3г · У 13г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 35 мин</span>
+              <span>🍽 6 штук</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 5% — 250 г</li>
+              <li>Овсяная мука — 80 г</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Подсластитель — по вкусу</li>
+              <li>Разрыхлитель — 1 ч.л.</li>
+              <li>Ванилин — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать творог с яйцом до однородности.</li>
+              <li>Добавить овсяную муку, разрыхлитель, подсластитель и ванилин.</li>
+              <li>Разложить тесто по формочкам для маффинов (силиконовым).</li>
+              <li>Выпекать при 180°C 25 минут до золотистой корочки.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 3 дня. Можно заморозить на 2 недели.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 2. Творожная запеканка с ягодами -->
+      <div class="dessert-card" data-cal="115" data-category="творожные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творожная запеканка с ягодами</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">115 ккал</span> · Б 12г · Ж 3г · У 10г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 45 мин</span>
+              <span>🍽 6 порций</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 5% — 500 г</li>
+              <li>Яйцо — 2 шт</li>
+              <li>Ягоды (замороженные или свежие) — 150 г</li>
+              <li>Ванилин — щепотка</li>
+              <li>Подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать творог с яйцами и ванилином до гладкой массы.</li>
+              <li>Добавить подсластитель, перемешать.</li>
+              <li>Выложить в форму, сверху — ягоды, слегка утопив.</li>
+              <li>Выпекать при 180°C 35–40 минут.</li>
+              <li>Дать остыть 15 мин перед подачей.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 3 дня. Подавать холодной или тёплой.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 3. Сырники из духовки -->
+      <div class="dessert-card" data-cal="140" data-category="творожные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творожные сырники из духовки</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">140 ккал</span> · Б 15г · Ж 4г · У 12г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 30 мин</span>
+              <span>🍽 8 штук</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 5% — 400 г</li>
+              <li>Овсяная мука — 60 г</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Подсластитель — по вкусу</li>
+              <li>Ванилин — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать творог, яйцо, муку и подсластитель.</li>
+              <li>Сформировать сырники, выложить на пергамент.</li>
+              <li>Выпекать при 180°C 20–25 минут, перевернув на 15-й минуте.</li>
+              <li>Подавать с йогуртом или ягодами.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 2 дня. Разогревать в микроволновке 30 сек.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 4. Творожный мусс с какао -->
+      <div class="dessert-card" data-cal="95" data-category="творожные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Творожный мусс с какао</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">95 ккал</span> · Б 11г · Ж 2г · У 8г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 2% — 200 г</li>
+              <li>Какао-порошок — 1 ст.л.</li>
+              <li>Подсластитель — по вкусу</li>
+              <li>Йогурт натуральный — 50 мл</li>
+              <li>Ванилин — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Взбить творог с йогуртом блендером до воздушности.</li>
+              <li>Добавить какао, подсластитель и ванилин. Взбить ещё раз.</li>
+              <li>Разложить по креманкам, охладить 30 мин.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 2 дня. Лучше есть свежим — вкуснее!</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 2: БЕЛКОВЫЕ ДЕСЕРТЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-protein">
+    <div class="category-header">
+      <span class="cat-icon">💪</span> Белковые десерты
+      <span class="cat-count">4 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 5. Белковые меренги -->
+      <div class="dessert-card" data-cal="240" data-category="белковые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Белковые меренги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">240 ккал</span>/100г · Б 8г · Ж 0г · У 56г
+            </div>
+            <span class="kbzhu-note">Порция ~5 г = всего 12 ккал</span>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 90 мин</span>
+              <span>🍽 ~30 штук</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Белки яиц — 3 шт (комнатной температуры)</li>
+              <li>Подсластитель (эритрит) — 80 г</li>
+              <li>Лимонный сок — 1 ч.л.</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Взбить белки с лимонным соком до мягких пиков.</li>
+              <li>Постепенно добавлять подсластитель, взбивая до жёстких пиков.</li>
+              <li>Отсадить из кондитерского мешка на пергамент.</li>
+              <li>Сушить в духовке при 90°C 60–80 минут. Не открывать дверцу!</li>
+              <li>Оставить в выключенной духовке до полного остывания.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Герметичный контейнер — до 2 недель. Боятся влаги!</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 6. Протеиновый пудинг -->
+      <div class="dessert-card" data-cal="85" data-category="белковые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Протеиновый пудинг</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">85 ккал</span> · Б 9г · Ж 1г · У 10г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 10 мин + охлаждение</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Творог 2% — 150 г</li>
+              <li>Какао-порошок — 1 ст.л.</li>
+              <li>Банан — 1/2 шт (спелый)</li>
+              <li>Молоко 1.5% — 100 мл</li>
+              <li>Подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Все ингредиенты пробить блендером до гладкости.</li>
+              <li>Разлить по стаканам.</li>
+              <li>Убрать в холодильник минимум на 1 час.</li>
+              <li>Украсить ягодами или какао перед подачей.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 1 день. Лучше готовить на раз.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 7. Белковое мороженое -->
+      <div class="dessert-card" data-cal="90" data-category="белковые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Белковое мороженое</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">90 ккал</span> · Б 7г · Ж 1г · У 13г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + заморозка</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Замороженный банан (нарезать и заморозить заранее) — 1 шт</li>
+              <li>Творог 2% — 100 г</li>
+              <li>Какао-порошок — 1 ст.л.</li>
+              <li>Подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Замороженный банан + творог + какао пробить блендером.</li>
+              <li>Добавить подсластитель, взбить ещё 30 секунд.</li>
+              <li>Сразу подавать (мягкое мороженое) или заморозить 2 часа.</li>
+              <li>Если замораживали — достать за 10 мин до подачи.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Морозилка — 1 неделя. Перед подачей дать чуть подтаять.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 8. Протеиновые блинчики -->
+      <div class="dessert-card" data-cal="120" data-category="белковые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Протеиновые блинчики</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">120 ккал</span> · Б 10г · Ж 2г · У 16г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 20 мин</span>
+              <span>🍽 6 блинчиков</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Белки яиц — 3 шт</li>
+              <li>Овсяные хлопья — 50 г (измельчить в блендере)</li>
+              <li>Банан — 1 шт (спелый)</li>
+              <li>Разрыхлитель — 1/2 ч.л.</li>
+              <li>Корица — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Размять банан, добавить белки, овсянку и разрыхлитель.</li>
+              <li>Перемешать до однородного теста.</li>
+              <li>Жарить на антипригарной сковороде без масла, по 2 мин с каждой стороны.</li>
+              <li>Подавать с йогуртом и ягодами.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 2 дня. Разогревать в тостере или на сковороде.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 3: ФРУКТОВЫЕ ДЕСЕРТЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-fruit">
+    <div class="category-header">
+      <span class="cat-icon">🍓</span> Фруктовые десерты
+      <span class="cat-count">3 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 9. Запечённые бананы с корицей -->
+      <div class="dessert-card" data-cal="95" data-category="фруктовые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Запечённые бананы с корицей</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">95 ккал</span> · Б 1г · Ж 0г · У 23г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 20 мин</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Банан — 2 шт</li>
+              <li>Корица — 1/2 ч.л.</li>
+              <li>Мёд — 1/2 ч.л. (капля)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Разрезать бананы вдоль, не снимая кожуру.</li>
+              <li>Посыпать корицей, капнуть мёдом.</li>
+              <li>Запекать при 180°C 15 минут до карамелизации.</li>
+              <li>Подавать тёплыми с ложечкой йогурта.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Есть сразу — не хранится. Готовится за 5 минут!</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 10. Ягодный сорбет -->
+      <div class="dessert-card" data-cal="45" data-category="фруктовые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Ягодный сорбет</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">45 ккал</span> · Б 1г · Ж 0г · У 10г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Замороженные ягоды (клубника, малина, черника) — 300 г</li>
+              <li>Подсластитель — по вкусу</li>
+              <li>Лимонный сок — 1 ч.л.</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Достать ягоды, дать постоять 5 минут (чтобы чуть подтаяли).</li>
+              <li>Пробить мощным блендером до однородности.</li>
+              <li>Добавить подсластитель и лимонный сок.</li>
+              <li>Сразу подавать или заморозить 1 час для плотности.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Морозилка — 1 неделя. Перед подачей дать постоять 10 мин.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 11. Фруктовые чипсы из духовки -->
+      <div class="dessert-card" data-cal="250" data-category="фруктовые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Фруктовые чипсы из духовки</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">250 ккал</span>/100г · Б 1г · Ж 0г · У 60г
+            </div>
+            <span class="kbzhu-note">Порция 20 г = всего 50 ккал</span>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 2 часа</span>
+              <span>🍽 4 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Яблоки или бананы — 3–4 шт</li>
+              <li>Корица — по вкусу</li>
+              <li>Лимонный сок — для яблок (чтобы не темнели)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Нарезать фрукты максимально тонкими кружочками (1–2 мм).</li>
+              <li>Яблоки — сбрызнуть лимонным соком. Посыпать корицей.</li>
+              <li>Выложить в один слой на пергамент.</li>
+              <li>Сушить при 120°C около 2 часов, переворачивая каждые 30 мин.</li>
+              <li>Готовы, когда стали хрустящими и сухими.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Герметичный контейнер — до 2 недель. Отличный перекус!</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 4: ОВСЯНЫЕ ДЕСЕРТЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-oat">
+    <div class="category-header">
+      <span class="cat-icon">🥣</span> Овсяные десерты
+      <span class="cat-count">3 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 12. Овсяное печенье без сахара -->
+      <div class="dessert-card" data-cal="180" data-category="овсяные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Овсяное печенье без сахара</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">180 ккал</span> · Б 5г · Ж 3г · У 32г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 30 мин</span>
+              <span>🍽 12 штук</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Овсяные хлопья — 200 г</li>
+              <li>Банан (спелый) — 2 шт</li>
+              <li>Какао-порошок — 2 ст.л.</li>
+              <li>Корица — 1/2 ч.л.</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Размять бананы вилкой до пюре.</li>
+              <li>Смешать с овсянкой, какао и корицей.</li>
+              <li>Сформировать печенья, выложить на пергамент.</li>
+              <li>Выпекать при 180°C 15–20 минут.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Контейнер — до 5 дней. Можно заморозить на месяц.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 13. Гранола домашняя -->
+      <div class="dessert-card" data-cal="350" data-category="овсяные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Гранола домашняя</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">350 ккал</span>/100г · Б 10г · Ж 12г · У 50г
+            </div>
+            <span class="kbzhu-note">Порция 40 г = 140 ккал (с йогуртом)</span>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 40 мин</span>
+              <span>🍽 10 порций</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Овсяные хлопья — 300 г</li>
+              <li>Мёд — 2 ст.л.</li>
+              <li>Семечки подсолнуха — 50 г</li>
+              <li>Тыквенные семечки — 30 г</li>
+              <li>Корица — 1 ч.л.</li>
+              <li>Кокосовая стружка — 20 г (опционально)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать овсянку, семечки и корицу.</li>
+              <li>Добавить мёд, хорошо перемешать (все должно быть покрыто).</li>
+              <li>Выложить тонким слоем на противень с пергаментом.</li>
+              <li>Запекать при 160°C 25–30 мин, перемешивая каждые 10 мин.</li>
+              <li>Остудить полностью (станет хрустящей).</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Герметичный контейнер — до 3 недель. Подавать с йогуртом.</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 14. Овсяноблин с начинкой -->
+      <div class="dessert-card" data-cal="155" data-category="овсяные">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Овсяноблин с начинкой</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">155 ккал</span> · Б 9г · Ж 5г · У 18г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 15 мин</span>
+              <span>🍽 1 порция</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Овсяные хлопья — 40 г</li>
+              <li>Яйцо — 1 шт</li>
+              <li>Молоко — 30 мл</li>
+              <li>Начинка: творог + ягоды (или банан + арахисовая паста)</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать овсянку, яйцо и молоко. Дать постоять 5 мин.</li>
+              <li>Вылить на горячую антипригарную сковороду тонким слоем.</li>
+              <li>Жарить 2–3 мин с каждой стороны.</li>
+              <li>Выложить начинку, свернуть пополам. Готово!</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Лучше есть сразу. Тесто можно замешать с вечера.</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 5: ЧИА И СЕМЕНА -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-chia">
+    <div class="category-header">
+      <span class="cat-icon">🌱</span> Чиа и семена
+      <span class="cat-count">2 рецепта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 15. Чиа-пудинг с кокосовым молоком -->
+      <div class="dessert-card" data-cal="105" data-category="чиа">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Чиа-пудинг с кокосовым молоком</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">105 ккал</span> · Б 3г · Ж 6г · У 9г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + ночь</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Семена чиа — 40 г</li>
+              <li>Кокосовое молоко (лёгкое) — 200 мл</li>
+              <li>Подсластитель — по вкусу</li>
+              <li>Ягоды для топпинга — 50 г</li>
+              <li>Ванилин — щепотка</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Смешать чиа с кокосовым молоком и подсластителем.</li>
+              <li>Перемешать хорошо (чтобы не было комков).</li>
+              <li>Убрать в холодильник минимум на 4 часа (лучше на ночь).</li>
+              <li>Перед подачей перемешать, украсить ягодами.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 3 дня. Идеально для мил-препа!</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 16. Чиа-пудинг с какао -->
+      <div class="dessert-card" data-cal="95" data-category="чиа">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Чиа-пудинг с какао</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">95 ккал</span> · Б 4г · Ж 5г · У 8г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 5 мин + ночь</span>
+              <span>🍽 2 порции</span>
+            </div>
+            <h4>Ингредиенты</h4>
+            <ul>
+              <li>Семена чиа — 40 г</li>
+              <li>Молоко 1.5% — 200 мл</li>
+              <li>Какао-порошок — 1 ст.л.</li>
+              <li>Банан — 1/2 шт (для сладости)</li>
+              <li>Подсластитель — по вкусу</li>
+            </ul>
+            <h4>Шаги</h4>
+            <ol>
+              <li>Размять банан, смешать с молоком и какао.</li>
+              <li>Добавить чиа, перемешать.</li>
+              <li>Убрать в холодильник на 4+ часов.</li>
+              <li>Подавать с ягодами или кокосовой стружкой.</li>
+            </ol>
+            <h4>Хранение</h4>
+            <div class="recipe-tip">Холодильник — 3 дня. Шоколадная версия — фаворит!</div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- КАТЕГОРИЯ 6: ГОТОВЫЕ ПРОДУКТЫ -->
+  <!-- ============================================ -->
+  <section class="category-section" id="cat-shop">
+    <div class="category-header">
+      <span class="cat-icon">🛒</span> Готовые продукты (barbora.lt)
+      <span class="cat-count">2 продукта</span>
+    </div>
+    <div class="recipe-grid">
+
+      <!-- 17. Протеиновые йогурты -->
+      <div class="dessert-card" data-cal="50" data-category="готовые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Протеиновые йогурты</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">~50 ккал</span> · Б 8–10г · Ж 0г · У 4г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 0 мин</span>
+              <span>🍽 готово к употреблению</span>
+            </div>
+            <h4>Что искать</h4>
+            <ul>
+              <li>YoPRO — ванильный, клубничный, натуральный</li>
+              <li>Arla Protein — разные вкусы</li>
+              <li>Lidl / Milbona Protein — бюджетный вариант</li>
+            </ul>
+            <h4>Как использовать</h4>
+            <ol>
+              <li>Как самостоятельный десерт — прямо из баночки.</li>
+              <li>Топпинг для гранолы или овсяноблина.</li>
+              <li>Основа для пудинга — добавить чиа.</li>
+            </ol>
+            <a href="https://barbora.lt/paieska?q=protein+jogurtas" target="_blank" rel="noopener" class="product-link">
+              🛒 Найти на barbora.lt
+            </a>
+          </div>
+        </details>
+      </div>
+
+      <!-- 18. Протеиновые пудинги -->
+      <div class="dessert-card" data-cal="80" data-category="готовые">
+        <details class="recipe">
+          <summary>
+            <div class="summary-top">
+              <span class="recipe-name">Протеиновые пудинги</span>
+            </div>
+            <div class="kbzhu-badge">
+              <span class="kcal-val">~80 ккал</span> · Б 10г · Ж 2г · У 7г
+            </div>
+          </summary>
+          <div class="recipe-body">
+            <div class="recipe-meta">
+              <span>⏱ 0 мин</span>
+              <span>🍽 готово к употреблению</span>
+            </div>
+            <h4>Что искать</h4>
+            <ul>
+              <li>Ehrmann High Protein — шоколад, ваниль, карамель</li>
+              <li>Dr. Oetker High Protein — разные вкусы</li>
+              <li>Любые пудинги с пометкой "High Protein"</li>
+            </ul>
+            <h4>Как использовать</h4>
+            <ol>
+              <li>Идеальный вечерний десерт — сытный и вкусный.</li>
+              <li>Можно заморозить на 1 час — будет как мороженое.</li>
+              <li>Смешать с ягодами для парфе.</li>
+            </ol>
+            <a href="https://barbora.lt/paieska?q=protein+pudingas" target="_blank" rel="noopener" class="product-link">
+              🛒 Найти на barbora.lt
+            </a>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  🍰 ПП-десерты для Саши и Ксюши · Обновлено: март 2026
+</footer>
+
+<script>
+(function() {
+  // === DARK MODE ===
+  var DARK_KEY = 'desserts_dark';
+  var toggle = document.getElementById('darkToggle');
+  var saved = localStorage.getItem(DARK_KEY);
+
+  if (saved === 'dark') { document.body.classList.add('dark'); toggle.textContent = '\u2600\uFE0F'; }
+  else if (saved === 'light') { document.body.classList.add('light'); toggle.textContent = '\uD83C\uDF19'; }
+
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+      localStorage.setItem(DARK_KEY, 'light');
+      toggle.textContent = '\uD83C\uDF19';
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+      localStorage.setItem(DARK_KEY, 'dark');
+      toggle.textContent = '\u2600\uFE0F';
+    }
+  });
+
+  // === FILTER SYSTEM ===
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.dessert-card');
+  var countEl = document.getElementById('visibleCount');
+  var totalCount = cards.length;
+
+  function applyFilter(filter) {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var cal = parseInt(card.getAttribute('data-cal'), 10);
+      var cat = card.getAttribute('data-category');
+      var show = false;
+
+      if (filter === 'all') {
+        show = true;
+      } else if (filter === 'cal-100') {
+        show = cal <= 100;
+      } else if (filter === 'cal-150') {
+        show = cal <= 150;
+      } else {
+        show = cat === filter;
+      }
+
+      if (show) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    countEl.textContent = visible;
+
+    // Show/hide category sections with no visible cards
+    document.querySelectorAll('.category-section').forEach(function(section) {
+      var visibleCards = section.querySelectorAll('.dessert-card:not(.hidden)');
+      section.style.display = visibleCards.length > 0 ? '' : 'none';
+    });
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>
+</body>
+</html>

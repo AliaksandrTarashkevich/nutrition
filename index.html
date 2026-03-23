@@ -116,28 +116,54 @@ toggle.addEventListener('click', () => {
 });
 
 // Week list — manually maintained for GitHub Pages (static)
+// Catalogs (permanent pages)
+const catalogs = [
+  { file: 'desserts.html', title: 'Каталог ПП-десертов', desc: '18 рецептов с КБЖУ', icon: '🍰' },
+  { file: 'snacks.html', title: 'Каталог ПП-снэков', desc: '18 рецептов для кино', icon: '🥜' },
+];
+
+// Weekly menus
 const weeks = [
   { file: 'Menu_Mar05.html', title: 'Неделя 5 · Март', dates: '23–29 марта 2026', icon: '🥗' },
 ];
 
 const list = document.getElementById('weekList');
-if (weeks.length === 0) {
-  list.innerHTML = '<div class="empty">Пока нет меню. Скоро появится первая неделя!</div>';
-} else {
-  weeks.forEach(w => {
-    const a = document.createElement('a');
-    a.href = w.file;
-    a.className = 'week-card';
-    a.innerHTML = `
-      <div class="week-icon">${w.icon}</div>
-      <div class="week-info">
-        <div class="week-title">${w.title}</div>
-        <div class="week-dates">${w.dates}</div>
-      </div>
-      <span class="week-arrow">→</span>`;
-    list.appendChild(a);
-  });
-}
+
+// Render catalogs first
+catalogs.forEach(c => {
+  const a = document.createElement('a');
+  a.href = c.file;
+  a.className = 'week-card';
+  a.innerHTML = `
+    <div class="week-icon">${c.icon}</div>
+    <div class="week-info">
+      <div class="week-title">${c.title}</div>
+      <div class="week-dates">${c.desc}</div>
+    </div>
+    <span class="week-arrow">→</span>`;
+  list.appendChild(a);
+});
+
+// Separator
+const sep = document.createElement('div');
+sep.style.cssText = 'font-size:0.8rem;color:var(--text-secondary);padding:8px 0 0;font-weight:600;';
+sep.textContent = 'Недельные меню';
+list.appendChild(sep);
+
+// Render weeks
+weeks.forEach(w => {
+  const a = document.createElement('a');
+  a.href = w.file;
+  a.className = 'week-card';
+  a.innerHTML = `
+    <div class="week-icon">${w.icon}</div>
+    <div class="week-info">
+      <div class="week-title">${w.title}</div>
+      <div class="week-dates">${w.dates}</div>
+    </div>
+    <span class="week-arrow">→</span>`;
+  list.appendChild(a);
+});
 </script>
 </body>
 </html>
